@@ -13,6 +13,7 @@ Each folder in the file system may contain subfolders, data files, or applicatio
 
 Each file and folder has a name consisting the full path from the root "/" to the file separated by "/" for mac/linux and "\" for windows command shell.
 For example on the Mac, 
+* / is the root folder
 * /Users is the folder containing all user folders
 * /Applications is the folder containing applications
 * /bin is the folder containing core shell commands
