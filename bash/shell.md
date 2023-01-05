@@ -18,7 +18,6 @@ For example on the Mac,
 * /bin is the folder containing core shell commands
 * /bin/ls is the application for listing files
 * /usr/local/bin/ is the folder containing applications installed by the user
-* /usr/local/bin/wget is the wget applications for reading data from a URL
 
 ## File and Folder Permissions
 Each file or folders has some metadata specifying who has permissions to view, run, or momdify the file.
