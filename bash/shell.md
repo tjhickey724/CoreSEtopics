@@ -11,6 +11,15 @@ The disk memory is organized hierarchically into a file system,
 which consists of a toplevel folder called the root (and accessed as '/')
 Each folder in the file system may contain subfolders, data files, or applications that can be run.
 
+Each file and folder has a name consisting the full path from the root "/" to the file separated by "/" for mac/linux and "\" for windows command shell.
+For example on the Mac, 
+* /Users is the folder containing all user folders
+* /Applications is the folder containing applications
+* /bin is the folder containing core shell commands
+* /bin/ls is the application for listing files
+* /usr/local/bin/ is the folder containing applications installed by the user
+* /usr/local/bin/wget is the wget applications for reading data from a URL
+
 ## File and Folder Permissions
 Each file or folders has some metadata specifying who has permissions to view, run, or momdify the file.
 This allows multiple users to use the same computer system while still maintaining privacy (if they want it).
