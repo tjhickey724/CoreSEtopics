@@ -52,5 +52,17 @@ The following are the basic commands for navigating the filesystem which are fou
 * ./APPNAME == run the specified file as an application
 
 
+## Applications
+In the shell you can invoke programs by name. The shell consults the $PATH environent variable and searches the folders on that list until it finds an executable application with name, at which time it runs that applicat6ion.  If none is found, then it throws an error.
+
+Executable applications take their input from two places:
+1. the arguments, e.g. "ls -l ~/Downloads" sends the strings "-l" and "~/Downloads" as arguments to the application in /bin/ls
+2. the input stream, stdin.  You can send input into an application using the "< file" arguments, e.g. grep "abc" < test.txt will send the file test.txt (if it exists) to the application "grep" called with arguments "abc"
+
+Executable applications send their output to two places:
+1. stdout is a stream of data representing the expected output
+2. stderr is a stream of data representing error messages
+
+We will see later how you can use the shell to specify where these input streams should come from and where the output streams should go!
 
 
