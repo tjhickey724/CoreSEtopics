@@ -6,6 +6,12 @@
  * use shell commands to traverse and modify the file system (pwd, ls, cd, mkdir, rm, rmdir, touch,...)
  * open chatgpt and ask it to write shell commands for you
 
+## Reading 
+You should download the free and open source book: [The Linux Command Line](https://linuxcommand.org/tlcl.php)  and read Chapters 1-3
+
+## Activity - Intro to the Shell
+We look over the shell basics at this link: [Shell basics](https://github.com/tjhickey724/CoreSEtopics/blob/main/bash/shell.md)
+
 ## Activity - ChatGpt practice
 If we give the following request to chatgpt
 
