@@ -22,3 +22,6 @@ We have everyone connect to the MLA account for this class
 Visit https://mastery.cs.brandeis.edu and enter the PIN that I give in class
 
 We will use this to have you ask questions and respond to each other and answer questions I pose.
+
+## Activity -- Learning about the shell
+We begin to learn about the shell by looking over [these webpages](https://linuxcommand.org/lc3_learning_the_shell.php) in The Linux Command Line website.
