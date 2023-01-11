@@ -9,8 +9,13 @@
 ## Reading 
 You should download the free and open source book: [The Linux Command Line](https://linuxcommand.org/tlcl.php)  and read Chapters 1-3
 
+## Opening the terminal
+You should open up the terminal app on Mac or the Powershell on Windows or a terminal window on Linux.
+We will show you have to use the ssh command to open up a Bash shell on the University CS Department computers.
+
 ## Activity - Intro to the Shell
 We look over the shell basics at this link: [Shell basics](https://github.com/tjhickey724/CoreSEtopics/blob/main/bash/shell.md)
+
 
 ## Activity - ChatGpt practice
 If we give the following request to chatgpt
