@@ -16,6 +16,9 @@ We will show you have to use the ssh command to open up a Bash shell on the Univ
 ## Activity - Intro to the Shell
 We look over the shell basics at this link: [Shell basics](https://github.com/tjhickey724/CoreSEtopics/blob/main/bash/shell.md)
 
+## Diving into the details.
+We continue looking over the [Bash Fundamentals](https://linuxcommand.org/lc3_learning_the_shell.php) website and practicing shell commands ...
+
 
 ## Activity - ChatGpt practice
 If we give the following request to chatgpt
@@ -89,6 +92,7 @@ The "grep -v /" command is a pattern matcher. With the "-v" switch it returns al
 The "grep "$2$" command returns all lines which contain the second argument $2" at the end of the line which is indicated by the final "$" in the pattern.
 
 We will look in more detail at the grep command next week. It is a pattern matching application which is very powerful and well worth knowing!
+
 
 
 
