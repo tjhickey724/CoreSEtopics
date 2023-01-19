@@ -21,6 +21,9 @@ We review the shell basics at this link: [Shell basics](https://github.com/tjhic
 
 
 ## Activity - ChatGpt example
+Bash is a actually a programming language, with conditional statements, loops, variables, etc.
+To get an idea of how bash scripts work we can ask chatgpt to create a script for us ...
+
 If we give the following request to chatgpt
 ```
 Write a bash script with two parameters. 
@@ -89,7 +92,7 @@ The "cd $1" command changes directory to the folder specified in the first argum
  * "grep -v /", whose output is then sent to the last command
  * "grep "$2$", whose result is printed to the terminal
 
-## Commands
+### Commands
 The "ls -p" command lists all of the files and folders in the working directory and puts a "/" at the end of each folder (but not after a file). The results are sent with one file or folder per line.
 
 The "grep -v /" command is a pattern matcher. With the "-v" switch it returns all lines that don't contain the pattern "/"
