@@ -94,6 +94,142 @@ The "grep "$2$" command returns all lines which contain the second argument $2" 
 
 We will look in more detail at the grep command next week. It is a pattern matching application which is very powerful and well worth knowing!
 
+## Input and Output for Shell Processes
+A program invoked by a shell creates a process which takes input from a stream called stdin and sends output to two streams stdout and stderr and it returns an integer value. The process also has access to the command line arguments used in the shell command to start the process and it can access the operating system through an API to get more information and invoke other processes. Below is a diagram showing a typical shell process:
+
+![shell process](https://github.com/tjhickey724/CoreSEtopics/blob/main/bash/shellprocess.png)
+
+## Activity -- Introduction to the Shell
+We give a guided tour of the shell (terminal.app on Mac and powershell on windows) and go over some of the basic commands and ideas, including the following:
+```
+pwd  - print working directory
+cd DIR  - change directory to the specified directory DIR
+ls -- list the files and folders in the current directory
+mkdir DIR -- create a new directory with name DIR
+cp FILE1 FILE2 -- make a copy of FILE1 and call it FILE2
+cat FILE -- print the contents of the file
+echo A B C  ... D -- print A B C ... D on the terminal
+diff A B -- print out the line-by-line differences in the two files A and B
+history -- print a list of the most recent commands given to the shell
+man CMD -- provide documentation about the shell command CMD
+mv A B -- move file or directory A to B
+ps  -- list the processes that are running on the computer
+rm FILE -- remove the FILE 
+rmdir DIR -- remove the (empty) directory DIR
+```
+We will spend the first week or so of this course learning how to use the shell to get things done on a computer.
+
+The Shell is the program that listens to what the user types and then interprets it as a command to be carried out.
+
+There are many different shells -- terminal.app on the mac, powershell on Windows, bash on Linux
+We will focus on using bash and you will all get accounts on the departments computers so you can access a linux machine (we usually use the CENTOS version of Linux).
+
+
+
+
+
+
+
+## Activity - Shell Practice
+We skim through Part I of "The Linux Command Line" text and show how to read a Computer Science text!
+The main idea is that you have to tryout the code as it is introduced! We will have you practice and cut/paste your
+attempts into the mastery app. The first quiz will have these kinds of questions.
+
+Almost all Software Developers need to do some of their work using the shell and to really understand how a computer works you need to understand how the shell works. You'll see much more of this in CS131b if you are a CS major, but for now we will spend the first two weeks learning how to use the shell and how to deploy applications using containers and virtualization with the docker tool. Our plan is to have you deliver your major creative programming assignments as docker images.
+
+We discuss each of the core commands in the bash shell, which is the one we will be using in this class and we give exercises to practice using shell commands
+
+## Ch 2. Navigation (and The File System)
+All persistent data stored in your computer is stored in files. The files on Linux systems (and almost all others) are arranged hierarchically in a structured called a "tree" with the root of the tree ("/") at the top. Each file in the tree is either a folder/directory which contains links to other files, or it is a "leaf" which could be a text file, a word document, an executable program, a movie, etc.  
+Table 3.4 of TCLC shows the top level files and folder in the root directory.
+
+The main commands for moving around the file system are:
+
+```
+pwd -- print working directory shows where you are
+cd DIR -- changes to the directory DIR which can be an absolute path name (
+cd /home/tim/Desktop/testing)
+or relative (testing)
+cd testing  
+or going up to a parent
+cd ..
+ls -- lists the files in the current directory, there are many useful flags and you can pass arguments to list files in a specified directory
+ls -al   creates a long listing of all files in the current directory
+ls -alS  /user      creates a long listing of all files in the /user folder sorted by size
+ls -lR .  creates a long listing of all files and folders in the current directory and the contents of all directories, recursively
+```
+
+### EXERCISES -- we get some practice using the shell
+Try to connect to tiara with the command
+
+ssh yourcsusername@tiara.cs.brandeis.edu
+
+from terminal.app on mac or powershell on windows. Note that your user name must be all lowercase.
+
+
+
+## Ch 3. Exploring the file system
+You can use the file command to discover the type of data stored in a file. If it is a text file you can use the less command to look at the contents and scroll forward and back through the text.
+
+``` bash
+file FILEORFOLDER
+less TEXTFILE
+```
+
+### Exercises ...
+
+## Ch 4 Manipulating Files and Directories
+You can change the data stored in the file systems by moving files and folders around in various ways. The main commands are
+``` bash
+cp makes a copy of a file of any type. Copying a folder requires the "recursive" flag -r
+cp OLDFILE NEWFILE   
+cp -r OLDFOLDER NEWFOLDER
+mv  moves one or more files to another location
+mv OLDFILE NEWFILE  this renames the file
+mv F1 F2 ... Fn  FOLDER  moves the folders F1, F2, ... to the specified FOLDER
+mkdir  creates a new folder
+mkdir NEWFOLDER
+rm removes a file or folderr
+rm FILE
+rm -r FOLDER removes the folder and everything in it, recursively
+ln  creates a link to a file or folder and gives it a name 
+ln -s FILE LINK   the LINK now is a symbolic reference to the FILE, kind of like an alias or shortcut, not a copy!
+```
+
+## Ch 5. Working with commands
+```
+type, which, help, man, apropos, info, whatis, alias, 
+```
+
+
+## Ch 6 Redirection and Pipes
+
+```
+cat, sort, uniq, grep, wc, head, tail, tee
+```
+
+Every command has one input stream (stdin) and two output streams (stdout, stderr). These are usually the keyboard for stdin and the terminal screen for stdout and stderr, but Linux allows you to get the input from somewhere else and send the output somewhere else as well...
+
+Redirection - you can send the output to a file using ">"  and get the input from a file using "<"
+
+You can append the output to a file using ">>"
+
+You can send the output to another process (as it's stdin) using "|"
+
+You can redirect standard err to a file using "2>"
+
+You can redirect both stdout and stderr using "&>"
+
+We can try some of these out on the Mac terminal and the Windows powershell, as they are unix-based systems, but not all commands will work the same as in the bash shell (or at all). 
+
+We also introduce some of the main concepts:
+* the filesystem as a tree of files (some of which are folders/directories)
+* the computer as a multiprocessing operating system controlling devices
+* the shell as a text-based command processor whose goal is to start or stop processes and to keep track of a position in the filesystem (called the working director). There are many shells: bash, csh, zsh, terminal, powershell; we'll use bash.
+* file permissions based on user, group, and other
+* command arguments and expansion 
+* input/output/error streams and redirection
+* controlling processes in the background
 
 
 
