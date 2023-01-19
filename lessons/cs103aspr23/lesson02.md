@@ -4,7 +4,7 @@
  * open a shell on your laptop (terminal.app or PowerShell) and run commands
  * connect to one of the Brandeis servers (e.g. tiara) and run bash commands there
  * use shell commands to traverse and modify the file system (pwd, ls, cd, mkdir, rm, rmdir, touch,...)
- * open chatgpt and ask it to write shell commands for you
+ * redirect the input and output of a shell command to and from specific files
 
 ## Reading 
 You should download the free and open source book: [The Linux Command Line](https://linuxcommand.org/tlcl.php)  and read Chapters 1-3
