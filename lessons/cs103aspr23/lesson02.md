@@ -21,7 +21,7 @@ We look over the shell basics at this link: [Shell basics](https://github.com/tj
 We continue looking over the [Bash Fundamentals](https://linuxcommand.org/lc3_learning_the_shell.php) website and practicing shell commands ...
 
 
-## Activity - ChatGpt practice
+## Activity - ChatGpt example
 If we give the following request to chatgpt
 
 Write a bash script with two parameters. It should change directory to the first parameter and then list all files that end with the second parameter.
