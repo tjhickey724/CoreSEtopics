@@ -1,4 +1,4 @@
-# L02: Thu 1/19/23 | Shell scripting
+# L02: Thu 1/19/23 | Shell scripting and Redirection
 
 ## Learning Objectives -- by the end of the lesson you will be able to
  * open a shell on your laptop (terminal.app or PowerShell) and run commands
