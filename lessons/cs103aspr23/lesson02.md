@@ -7,7 +7,9 @@
  * redirect the input and output of a shell command to and from specific files
 
 ## Reading 
-You should download the free and open source book: [The Linux Command Line](https://linuxcommand.org/tlcl.php)  and read Chapters 1-3
+You should download the free and open source book: [The Linux Command Line](https://linuxcommand.org/tlcl.php)  and skim Chapters 1-6
+and work through the shell fundamentals on the the Linux Command Line website:
+[Bash Fundamentals](https://linuxcommand.org/lc3_learning_the_shell.php) website and practicing shell commands ...
 
 ## Opening the terminal
 You should open up the terminal app on Mac or the Powershell on Windows or a terminal window on Linux.
@@ -15,16 +17,16 @@ We will show you how to use the ssh command to open up a Bash shell on the Unive
 One windows computers you will need to use [putty](https://www.putty.org/) or something similar.
 
 ## Activity - Intro to the Shell
-We look over the shell basics at this link: [Shell basics](https://github.com/tjhickey724/CoreSEtopics/blob/main/bash/shell.md)
-
-## Diving into the details.
-We continue looking over the [Bash Fundamentals](https://linuxcommand.org/lc3_learning_the_shell.php) website and practicing shell commands ...
+We review the shell basics at this link: [Shell basics](https://github.com/tjhickey724/CoreSEtopics/blob/main/bash/shell.md)
 
 
 ## Activity - ChatGpt example
 If we give the following request to chatgpt
-
-Write a bash script with two parameters. It should change directory to the first parameter and then list all files that end with the second parameter.
+```
+Write a bash script with two parameters. 
+It should change directory to the first parameter 
+and then list all files that end with the second parameter.
+```
 
 It responds (correctly) as follows (or it did on 1/5/2023):
 
