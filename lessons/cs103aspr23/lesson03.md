@@ -52,7 +52,7 @@ You can redirect standard err to a file using "2>"
 
 You can redirect both stdout and stderr using "&>"
 
-# Argument Expansion in the shell: Chapter 7
+# Chapter 7 -- Argument Expansion in the shell
 
 The features we'll discuss are specific to the BASH shell so make sure you are using the BASH shell when following along. 
 Before bash runs the commands you have entered, it first expands the arguments you passed in using the rules shown below.
