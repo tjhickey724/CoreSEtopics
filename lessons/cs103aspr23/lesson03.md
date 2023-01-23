@@ -122,5 +122,8 @@ tab will autocomplete a command
 ```
 ```
 
+ssh issues solved by a flag
+ssh -oHostKeyAlgorithms=+ssh-rsa username@tiara.cs.brandeis.edu
+
 
 
