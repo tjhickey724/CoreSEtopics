@@ -7,6 +7,7 @@ They all get their input from stdin if called with no arguments, or from a file 
 and they send their output to stdout
 ``` bash
 cat -- sending a file to stdout
+less -- view the contents of a file in the terminal and allow user to scroll up and down with arrow keys
 sort -- sorting the lines of the input
 uniq -- removing duplicate lines from the input
 grep -- finding all lines in the input which match a pattern
