@@ -49,6 +49,11 @@ ls / >> files.txt
 ```
 
 You can redirect standard err to a file using "2>"
+For example, this will list all of the files and folders (and subfolders) in the /usr folder
+but send errors to the errors.txt file (e.g. permission errors where you are not allowed to read those files or folders).
+```
+du -a /usr 2> errors.txt > dua.txt
+```
 
 You can redirect both stdout and stderr using "&>"
 
