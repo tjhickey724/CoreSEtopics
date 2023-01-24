@@ -124,7 +124,30 @@ g = group (defined in /etc/groups)
 o = everybody on the system
 ```
 
-Changing permissions with chmod
+## viewing permissions
+The long listing version of the ls command (ls -l) shows the read/write/execute permissions for the user/group/others
+``` bash
+bash-3.2$ ls -l ~/Desktop
+total 32
+drwxr-xr-x   11 tim  staff   352 Jan 19 09:49 CoreSEtopics
+-rw-r--r--    1 tim  staff  8995 Jan 23 11:24 doc.txt
+drwxr-xr-x    3 tim  staff    96 Jan 18 11:59 lesson01
+drwxr-xr-x    5 tim  staff   160 Jan 22 13:12 lesson02
+drwxr-xr-x    3 tim  staff    96 Jan 23 10:34 lesson03
+drwxr-xr-x    4 tim  staff   128 Jan 24 16:14 lesson04
+-rw-r--r--    1 tim  staff   437 Jan 23 11:23 ls.txt
+drwxr-xr-x  128 tim  staff  4096 Jan 18 10:42 misc-20230118
+```
+Here is how to read a line of the long listing
+* The first character in each line is d for a folder or directory.
+* The next 3 are the permissions for the user, the next three for the group, and the last three for everyone else
+* The next number is the size of the file or folder
+* then the owner of the file
+* then the group of the file
+* then the size in bytes
+* finally the last modified date and the file/folder name
+
+## Changing permissions with chmod
 The easiest way to set permissions is to either use an octal command
 ``` bash
 chmod 760  
@@ -132,7 +155,12 @@ chmod 760
 where the 7 refers to the user and grants them rwx (111 in octal).
 the 6 refers to the group and grants the rw- (110) in octal
 the 0 refers to everyone else and grants them --- (000) in octal
-You can also add and remove permissions symbolically:
+You can also add and remove permissions symbolically
+using 
+* u,g, and/or o to specify the user group or other
+* and a + or - to specify adding or removing a permission
+* and r,w, and/or x to specify read, write, and execute permissions
+
 ``` bash
 chmod go-rwx  
 ```
@@ -210,12 +238,10 @@ You can modify your path in the .bashrc file which will get evaluated when you s
 
 # Chapter 10: Processes
 Processes are generally started by invoking a command in the shell or by running a script. Linux is a multiuser system and there are typically dozens if not hundreds of processes running simultaneously. On a multicore machines you will have several processes running at the same time, but usually the operating system has a list of processes that want to run and gives each one a short timeslice, then puts it back at the end of the list. You'll learn more about this in CS131a Operating Systems.
-We can see the current processes using the ps command with options
+We can see the current processes using the ps command with options, use the man ps command to learn more commands
 ``` bash
 ps   - shows the processes you started
-ps f  - shows the long form of the processes you started
-ps fx  - shows which process started which!
-ps af  - shows the long form of all processes
+ps -ajv shows more info about each process
 ```
 
 We can get a graphical view that is continually updated using the top command
