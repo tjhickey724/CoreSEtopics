@@ -61,7 +61,7 @@ tab will autocomplete a command
 !34  run command with history number 34
 !?ABC run last command which contained ABC
 ```
-```
+
 
 
 # Chapter 9: Permissions
