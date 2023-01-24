@@ -11,6 +11,9 @@ You should download the free and open source book: [The Linux Command Line](http
 and work through the shell fundamentals on the the Linux Command Line website:
 [Bash Fundamentals](https://linuxcommand.org/lc3_learning_the_shell.php) website and practicing shell commands ...
 
+You should also look over the 
+[official bash documentation at gnu.org](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html)
+
 ## Opening the terminal
 You should open up the terminal app on Mac or the Powershell on Windows or a terminal window on Linux.
 We will show you how to use the ssh command to open up a Bash shell on the University CS Department computers.
