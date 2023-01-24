@@ -5,7 +5,21 @@ The features we'll discuss are specific to the BASH shell so make sure you are u
 Before bash runs the commands you have entered, it first expands the arguments you passed in using the rules shown below.
 
 We can see how expansion is working using the echo command which simply prints out its arguments without further interpretation, after expansion. 
-For example, the most common argument expansion operator is the wildcard *. Here are some examples.
+
+The official documentation for bash is at the 
+[gnu.org website](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html)
+which has a secrtion on [argument expansion](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Shell-Expansions)
+
+
+### echo expands arguments and sends to stdout
+``` bash
+> echo this is a test
+this is a test
+```
+Here are the main argument expansion features of bash:
+
+### wildcards
+The most common argument expansion operator is the wildcard *. Here are some examples.
 ``` bash
 > echo this is a test
 this is a test
@@ -17,12 +31,11 @@ echo /usr/*/cups
 /usr/libexec/cups /usr/share/cups
 ```
 
-
-Here are the features:
-
-### wildcards
+### tilde expansion (~)
 ``` bash
-the * wildcard 
+# ~ expands to the user's home directory
+echo ~/Desktop
+/Users/tim/Desktop
 ```
 
 ### shell arithmetic
@@ -189,6 +202,11 @@ export PATH=$PATH:'.'
 echo $PATH
 ```
 running these commands we see that we have added '.' to the end of the path so it will look there last. This could be dangerous and we don't usually do it.
+
+A better approach is to create a folder in your home folder to store your scripts and add it to your path.
+
+You can modify your path in the .bashrc file which will get evaluated when you start up the shell.
+
 
 # Chapter 10: Processes
 Processes are generally started by invoking a command in the shell or by running a script. Linux is a multiuser system and there are typically dozens if not hundreds of processes running simultaneously. On a multicore machines you will have several processes running at the same time, but usually the operating system has a list of processes that want to run and gives each one a short timeslice, then puts it back at the end of the list. You'll learn more about this in CS131a Operating Systems.
