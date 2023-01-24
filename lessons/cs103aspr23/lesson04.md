@@ -19,22 +19,27 @@ echo /usr/*/cups
 
 
 Here are the features:
+
+### wildcards
 ``` bash
 the * wildcard 
 ```
 
+### shell arithmetic
 ``` bash
 # arithmetic $((expr))$
 echo $((365*24*60))
 ```
 
+### brace expansion
 ``` bash
 # brace expansion: {abc,def,ghi}
 # brace sequences: {a..m} or {0..9} or {000..15}  or {Z..A}
 mkdir movies; cd movies
-touch show{00..20}.mov
+touch show{a,z}-{00..20}.mov
 ```
 
+### parameter expansion
 ``` bash
 # parameter expansion: $PARAM
 # command substitution $(COMMAND)
@@ -48,7 +53,12 @@ The parameter expansion refers to environment variables which can be set in the 
 export testnum=99
 echo $testnum
 ```
+You can examine the current environment varaibles with
+``` bash
+printenv
+```
 
+### quotation
 ``` bash
 # double quoting "....."  keeps spacing but allows expansion
 # single quoting '....'  suppresses all expanion
