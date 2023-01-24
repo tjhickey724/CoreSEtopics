@@ -21,18 +21,42 @@ echo /usr/*/cups
 Here are the features:
 ``` bash
 the * wildcard 
-arithmetic $((expr))$
-brace expansion: {abc,def,ghi}
-brace sequences: {a..m} or {0..9} or {000..15}  or {Z..A}
-parameter expansion: $PARAM
-command substitution $(COMMAND)
-double quoting "....."  keeps spacing but allows expansion
-single quoting '....'  suppresses all expanion
-escaping:  \{    \$     \\    etc.
-The parameter expansion refers to environment variables which can be set in the shell using
-export VARNAME=VALUE
-and these are then accessed in the shell using  $VARNAME as in expansion rule 5 above...
 ```
+
+``` bash
+# arithmetic $((expr))$
+echo $((365*24*60))
+```
+
+``` bash
+# brace expansion: {abc,def,ghi}
+# brace sequences: {a..m} or {0..9} or {000..15}  or {Z..A}
+mkdir movies; cd movies
+touch show{00..20}.mov
+```
+
+``` bash
+# parameter expansion: $PARAM
+# command substitution $(COMMAND)
+echo $PATH
+```
+
+The parameter expansion refers to environment variables which can be set in the shell using
+``` bash
+# export VARNAME=VALUE
+# and these are then accessed in the shell using  $VARNAME as in expansion rule 5 above...
+export testnum=99
+echo $testnum
+```
+
+``` bash
+# double quoting "....."  keeps spacing but allows expansion
+# single quoting '....'  suppresses all expanion
+# escaping:  \{    \$     \\    etc. in doube quoted expressions
+echo 'echo $(($testnum*2))' > test.sh
+```
+
+
 
 # Practice
 We'll give several Mastery Learning problems to give you practice with this concept
@@ -65,25 +89,7 @@ tab will autocomplete a command
 
 
 # Chapter 9: Permissions
-Motivation
-Today we introduce permission, processes and shell scripts! 
-Permissions: Linux systems are by design meant to be used by many different users and the permission structure on files is designed to keep users from interfering which each others work. 
 
-Processes: Since we have many users on the system, we will have many programs running at the same time and each running program is called a process When the computer starts up, it has an initial user called the root which starts many processes to help the system run smoothly. Linux provides tools for examining which processes are running, and for stopping, pausing, and restarting processes.
-
-Scripts: Linux allows you to create your own commands by putting a sequence of shell commands into a file and making that file "executable" so when you type in its name it will run all of those commands.
-
-## Learning Objectives -- by the end of this lesson you will be able to
-examine the permissions of any file or folder
-change the permissions of any file or folder that you "own"
-examine the list of running processes
-stop, pause, and restart a process
-create a simple shell script consisting of a sequence of shell commands
-
-## Announcements
-Quiz 1 will be tomorrow during the recitation and will cover shell skills and concepts
-We will be delaying the docker topics until later in the semester
-Permissions
 The Linux operating system assigns and owner and a group to every file and uses this information to decide who gets to do what to which files.  The goal is allow multiple users to share a common disk and yet maintain privacy and allows some sharing when desired.  The Linux permission system allows you to specify permissions for
 ```
 r - reading a file
