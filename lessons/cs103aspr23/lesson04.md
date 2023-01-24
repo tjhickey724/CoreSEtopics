@@ -63,6 +63,154 @@ tab will autocomplete a command
 ```
 ```
 
-ssh issues solved by a flag
-ssh -oHostKeyAlgorithms=+ssh-rsa username@tiara.cs.brandeis.edu
 
+# Chapter 9: Permissions
+Motivation
+Today we introduce permission, processes and shell scripts! 
+Permissions: Linux systems are by design meant to be used by many different users and the permission structure on files is designed to keep users from interfering which each others work. 
+
+Processes: Since we have many users on the system, we will have many programs running at the same time and each running program is called a process When the computer starts up, it has an initial user called the root which starts many processes to help the system run smoothly. Linux provides tools for examining which processes are running, and for stopping, pausing, and restarting processes.
+
+Scripts: Linux allows you to create your own commands by putting a sequence of shell commands into a file and making that file "executable" so when you type in its name it will run all of those commands.
+
+## Learning Objectives -- by the end of this lesson you will be able to
+examine the permissions of any file or folder
+change the permissions of any file or folder that you "own"
+examine the list of running processes
+stop, pause, and restart a process
+create a simple shell script consisting of a sequence of shell commands
+
+## Announcements
+Quiz 1 will be tomorrow during the recitation and will cover shell skills and concepts
+We will be delaying the docker topics until later in the semester
+Permissions
+The Linux operating system assigns and owner and a group to every file and uses this information to decide who gets to do what to which files.  The goal is allow multiple users to share a common disk and yet maintain privacy and allows some sharing when desired.  The Linux permission system allows you to specify permissions for
+```
+r - reading a file
+w -writing to a file (i.e. modifiying it)
+x - running a file as a program or script
+You can do this separately for the
+u = user
+g = group (defined in /etc/groups)
+o = everybody on the system
+```
+
+Changing permissions with chmod
+The easiest way to set permissions is to either use an octal command
+``` bash
+chmod 760  
+```
+where the 7 refers to the user and grants them rwx (111 in octal).
+the 6 refers to the group and grants the rw- (110) in octal
+the 0 refers to everyone else and grants them --- (000) in octal
+You can also add and remove permissions symbolically:
+``` bash
+chmod go-rwx  
+```
+would remove rwx from the group and others
+
+## Changing users
+
+Linux allows you to switch between user accounts if you know the password.
+You use the su (substitute user) command with the -l switch
+``` bash
+su -l USERNAME -- switches to another user account
+```
+
+There is a distinguished user on a Linux system called the superuser that owns the process that starts the entire system. You are generally not allowed to use su to be come the superuser, but if you are on the list of "sudoers"  (/etc/sudoers) you can run a command as superuser using sudo
+
+``` bash
+sudo COMMANDS -- runs the commands as the superuser
+```
+
+If you own a file, you can change the owner and change the group using the chown and chgrp commands.  You can also change the password using the passwd command.
+
+
+## Scripting
+We can create our own commands by putting them in a file with a special first line(#!/bin/bash)
+and then we can run it using bash or we can change its permission to make it executable and run it by name.
+
+For example, let's make a hello world script
+
+``` bash
+#!/bin/bash
+echo "Hello World"
+echo 'Here are the commands in /bin how many do you know?'
+ls /bin
+echo 'Goodbye'
+```
+
+If we put this in a file called p1.sh we can run it with the command
+``` bash
+bash p1.sh
+```
+
+We might however want to make it a command we can just run by giving its name, like ls or cd, to do this we have to change its permission to make it executable, and we usually get rid of the .sh suffix
+``` bash
+cp p1.sh p1
+chmod p1 700
+```
+We can then run it using
+``` bash
+./p1
+```
+But why the "./" at the beginning? To see that we have to know about the PATH variable
+The PATH 
+Bash has a special environment variable called PATH. You can get its value using
+``` bash
+echo $PATH
+```
+or see all of the environment variables with
+``` bash
+printenv
+```
+When the bash shell is running a command, it uses the path to look for the code for that command. The code could be either low level machine code, or it could be a script as we have written.  By default the current directory ('.') is not on the path so it won't look for "p1" in our directory.
+We can change that by adding "." to the path:
+``` bash
+bash
+echo $PATH
+export PATH=$PATH:'.'
+echo $PATH
+```
+running these commands we see that we have added '.' to the end of the path so it will look there last. This could be dangerous and we don't usually do it.
+
+# Chapter 10: Processes
+Processes are generally started by invoking a command in the shell or by running a script. Linux is a multiuser system and there are typically dozens if not hundreds of processes running simultaneously. On a multicore machines you will have several processes running at the same time, but usually the operating system has a list of processes that want to run and gives each one a short timeslice, then puts it back at the end of the list. You'll learn more about this in CS131a Operating Systems.
+We can see the current processes using the ps command with options
+``` bash
+ps   - shows the processes you started
+ps f  - shows the long form of the processes you started
+ps fx  - shows which process started which!
+ps af  - shows the long form of all processes
+```
+
+We can get a graphical view that is continually updated using the top command
+``` bash
+top
+```
+and you can give commands to change the view
+``` bash
+h - brings up the help menu
+q - quits the program
+u tim  - show the processes owned by tim
+```
+Sometimes a process will take a long time to run and Linux allows you to pause it using control-Z
+you can then  restart it with the fg command or run it in the background with the bg command. You can also start the job running in the background immediately using the & command:
+``` bash
+du -a &> dua-20220126.txt &
+```
+
+Note that the &> is sending both stdout and stderr to the file, while the & at the end is running the process in the background.
+``` bash
+jobs -- show all of the jobs running in your shell and gives them numbers, 1,2,3,...
+^Z -- pause the current job
+^C -- kill the current job
+bg %N-- run the currently paused job in the background
+fg %N -- bring the background job to the foreground
+```
+
+
+ssh issues solved by a flag
+``` bash
+ssh -oHostKeyAlgorithms=+ssh-rsa username@tiara.cs.brandeis.edu
+```
