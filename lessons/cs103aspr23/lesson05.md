@@ -237,7 +237,7 @@ E{n} it repeats exactly n times
 ```
 For example we could look for a phone number pattern (ddd)-ddd-dddd in a file phones.txt with
 ``` bash
-grep -E '?[0−9]3?-[0-9]{3}-[0-9]{4}' phonelist.txt
+grep -E  "\([0-9]{3}\)-[0-9]{3}-[0-9]{4}" phonelist.txt 
 ```
 We can create the phonelist with this shell script:
 ``` bash
@@ -247,7 +247,7 @@ You can learn about Advanced Shell Scripts in Part 4 of TLCL but we will skip it
 
 We can find the lines that don't fit the pattern using the -v option for grep:
 ``` bash
-grep -E -v '?[0−9]3?-[0-9]{3}-[0-9]{4}' phonelist.txt
+grep -E  -v "\([0-9]{3}\)-[0-9]{3}-[0-9]{4}" phonelist.txt 
 ```
 as the RANDOM function will sometime generate fewer digits than expected.
 
