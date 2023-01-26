@@ -60,7 +60,7 @@ to include ~/myscripts
 export PATH="$PATH:$HOME/myscripts"
 ```
 
-]## command arguments in bash scripts
+## command arguments in bash scripts
 You can use the following special variables in a bash script
 ``` bash
 $# the number of arguments
