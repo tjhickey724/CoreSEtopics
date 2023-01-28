@@ -1,6 +1,5 @@
 # Ch 6 Redirection and Pipes
-First we review some bash commands that are frequently used together.
-They all get their input from stdin if called with no arguments, or from a file if one is given
+Bash commands get their input from stdin if called with no arguments, or from a file if one is given
 and they send their output to stdout
 ``` bash
 cat -- sending a file to stdout
