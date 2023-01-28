@@ -65,4 +65,44 @@ Executable applications send their output to two places:
 
 We will see later how you can use the shell to specify where these input streams should come from and where the output streams should go!
 
+## Input and Output for Shell Processes
+A program invoked by a shell creates a process which takes input from a stream called stdin and sends output to two streams stdout and stderr and it returns an integer value. The process also has access to the command line arguments used in the shell command to start the process and it can access the operating system through an API to get more information and invoke other processes. Below is a diagram showing a typical shell process:
+
+![shell process](https://github.com/tjhickey724/CoreSEtopics/blob/main/bash/shellprocess.png)
+
+## Activity -- Introduction to the Shell
+Here are some of the basic shell commands with an explanation of what they do.
+```
+pwd  - print working directory
+cd DIR  - change directory to the specified directory DIR
+ls -- list the files and folders in the current directory
+mkdir DIR -- create a new directory with name DIR
+cp FILE1 FILE2 -- make a copy of FILE1 and call it FILE2
+cat FILE -- print the contents of the file
+echo A B C  ... D -- print A B C ... D on the terminal
+diff A B -- print out the line-by-line differences in the two files A and B
+history -- print a list of the most recent commands given to the shell
+man CMD -- provide documentation about the shell command CMD
+mv A B -- move file or directory A to B
+ps  -- list the processes that are running on the computer
+rm FILE -- remove the FILE 
+rmdir DIR -- remove the (empty) directory DIR
+```
+
+The Shell is the program that listens to what the user types and then interprets it as a command to be carried out.
+
+There are many different shells -- terminal.app on the mac, powershell on Windows, bash on Linux
+We will focus on using bash and you will all get accounts on the departments computers so you can access a linux machine (we usually use the CENTOS version of Linux).
+
+
+
+
+
+
+
+## Activity - Shell Practice
+Skim through Part I of "The Linux Command Line" text.
+Try out the code as it is introduced! 
+
+Almost all Software Developers need to do some of their work using the shell and to really understand how a computer works you need to understand how the shell works. You'll see much more of this in CS131b if you are a CS major, but for now we will spend the first two weeks learning how to use the shell and how to deploy applications using containers and virtualization with the docker tool. Our plan is to have you deliver your major creative programming assignments as docker images.
 
