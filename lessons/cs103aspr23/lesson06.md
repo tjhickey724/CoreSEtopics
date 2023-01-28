@@ -13,6 +13,8 @@ you can also access the grep manual entry at this link
 
 https://www.gnu.org/software/grep/manual/html_node/index.html
 
+We can test our regular expressions using this link https://regex101.com/
+
 ## Learning Objectives -- by the end of the lesson you will be able to 
 explain the purpose of each of the 15 metacharacters used to create regular expressions
 explain why a particular regular expression does or does not match a particular line
