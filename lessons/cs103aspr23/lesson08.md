@@ -61,6 +61,42 @@ assert     del        global     not        with
 async      elif       if         or         yield
 ```
 
+## Functions
+Python functions are defined using the def keyword 
+``` python
+def functionname(arg1, arg2, ...):
+   '''  doc string comment describing what the function does
+        this can span multiple lines
+   '''
+   statement1
+   statement2
+   ....
+   statementn
+   return(expression)  # return statements are optional, and NONE will be return if no return is given
+```
+Here are some examples:
+``` python
+'''
+demo04 is a module 
+that contains a function is_prime(n) 
+that returns True if n is a positive prime, False otherwise
+author: Tim Hickey
+date: 2023-01-31
+'''
+def is_prime(n):
+    ''' returns True if n is a positive prime, False otherwise 
+    '''
+    for i in range(2,n):
+        if n%i== 0:
+            return False  # if n is divisible by 2<=i<n it is not prime
+        elif i*i>n:
+            return True  # any proper divisor must be less than sqrt(n)
+    return n>=2  # if n is 2 we never enter the loop
 
-
+if __name__ == '__main__':  # this only runs if this file is run directly
+    print('the primes < 100 are')
+    for i in range(-3,100):
+        if is_prime(i):
+            print(i, end=', ')  #don't add a newline after printing, add a comma space instead
+```
 
