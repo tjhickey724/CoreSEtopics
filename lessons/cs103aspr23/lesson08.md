@@ -149,7 +149,7 @@ Python comes with a large set of very useful standardized modules compiled into 
 which you can import just using their name, e.g. the math module, the datetime module, the string module
 These are all part of the [Python Standard Library](https://docs.python.org/3/library/index.html)
 
-You can also access the 450,000+ packages at the [Python Package/Python Index site: pypi.org](pypi.org) site, though some of these
+You can also access the 450,000+ packages at the [Python Package/Python Index site: pypi.org](https://pypi.org) site, though some of these
 might contain malware.
 
 and, of course, you can write your own modules. 
