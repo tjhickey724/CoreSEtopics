@@ -33,7 +33,8 @@ print('hello')  # this is a comment
 ## Statement blocks are indicated using indentation
 This is the biggest syntactical difference between Python and other OOP and imperative languages.
 Java uses curly braces {...} to indicate statement blocks such as while bodies, and if-then-else blocks.
-Python uses a "colon" (:) at the end of the enclosing statement and indentation afterwards (typically a tab or 4 spaces).
+Python uses a "colon" (:) at the end of the enclosing statement 
+and [indentation](https://docs.python.org/3/reference/lexical_analysis.html#indentation) afterwards (typically a tab or 4 spaces).
 ``` python
 for i in [2,3,5,7,11]:  # for loops can iterate over a list of Python values
     print('i=',i)
@@ -44,6 +45,22 @@ for i in [2,3,5,7,11]:  # for loops can iterate over a list of Python values
     print('-'*10)  # you can multiply a string by an integer to repeat it
 print('bye')
 ```
+
+## identifiers
+[Python identifiers](https://docs.python.org/3/reference/lexical_analysis.html#keywords) are similar to Java. They are case sensitive, can be of any length, and
+consist of letters, digits, and underscores, starting with a letter or underscore.
+
+Python 3.11 does not allow the following key words to be identifiers:
+``` python
+False      await      else       import     pass
+None       break      except     in         raise
+True       class      finally    is         return
+and        continue   for        lambda     try
+as         def        from       nonlocal   while
+assert     del        global     not        with
+async      elif       if         or         yield
+```
+
 
 
 
