@@ -147,10 +147,60 @@ from demo04 import *
 ## Data Structures
 Python has essentially the same primitive data types as Java, but integers can be any length, and Python also allows complex numbers (1 + 2 J) where J is the imaginary number rather than the familiar "i"
 
+Python also has a more expansive collection of compound data structures including lists, sets, tuples, and dictionaries, as well as control structures for iterating over those data structures
+
 ### Lists
 Lists are indicated using square brackets and can have elements of any type
 ``` python
 vals=[1,3.14159,'apple pie', True, None]
 print(vals)
 print('the 3rd element is',vals[2])
+```
+Python also allows one to access lists using "slice" notation vals[lo:hi] to get 
+the sublist with indices from lo upto but not including hi
+``` python
+sentence = "a rose is a rose is a rose"
+words = sentence.split(' ') #we can split a sentence into a list of words by a separator
+print(words)
+letters = list(sentence) #list turns a string into a list of words
+print(letters)
+words_again = "".join(letters) # sep.join(strlist) joins a list of strings using the separator sep
+print(words_again)
+repeater = words[2:5] # slice notation pulls out a sublist
+print(repeater)
+roses = words[1::3] # a third slice parameter is the step size, any parameter can be omitted for its default
+print(roses)
+print(words[::-1])  # step size of -1 reverses a list
+```
+
+# tuples
+A tuple is like a list but is formed with parentheses (...) instead of square brackets [....]
+and it is immutable, meaning you cannot change the elements of a tuple. 
+
+# sets
+A set is like a list but it contains only immutable objects with no duplicates and is created using
+curly braces {...}
+
+# conversion
+You can convert between these sequence types using the functions list, tuple, and set
+``` python
+a_list = [1,2,'a','b',2,(2,3,4),'a','1']
+a_tuple = (4,2,'x',[1,2,3])
+a_set ={2,1,'b','a',(4,'c'),'a','b','a'}
+print(a_list)
+print(tuple(a_list))
+print(set(a_list))
+print(list(a_tuple))
+print(list(a_set))
+```
+
+## Dictionaries
+Dictionaries are key/value stores like HashMaps in Java. They are created with curly braces
+enclosing key:value pairs separated by commas:
+``` python
+d1 = {'name':'Tim Hickey', 'age':67, 'gender':'M'}
+print(d1)
+print(d1['age')
+for key in d1:
+    print(key,d1[key])
 ```
