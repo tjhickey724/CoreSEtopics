@@ -77,12 +77,17 @@ def functionname(arg1, arg2, ...):
 Here are some examples:
 ``` python
 '''
-demo04 is a module 
-that contains a function is_prime(n) 
-that returns True if n is a positive prime, False otherwise
-author: Tim Hickey
-date: 2023-01-31
+    demo04 is a module 
+    that contains a function is_prime(n) 
+    that returns True if n is a positive prime, False otherwise
+    author: Tim Hickey
+    date: 2023-01-31
+    .... programs should have a triple quote multiline comment at the top
+    .... to explain what the code does, you can access this documentation with the help function
+    .... the functions should also have a doc string right after the definition line,
+    .... it can also be accessed in Python with the command help(is_prime)
 '''
+
 def is_prime(n):
     ''' returns True if n is a positive prime, False otherwise 
     '''
@@ -93,7 +98,7 @@ def is_prime(n):
             return True  # any proper divisor must be less than sqrt(n)
     return n>=2  # if n is 2 we never enter the loop
 
-if __name__ == '__main__':  # this only runs if this file is run directly
+if __name__ == '__main__':  # this only runs if this file is run directly, not if imported as a module
     print('the primes < 100 are')
     for i in range(-3,100):
         if is_prime(i):
