@@ -144,6 +144,16 @@ We can also import all functions directly without needing the demo04 prefix usin
 from demo04 import *
 ```
 
+## Standard Packages
+Python comes with a large set of very useful standardized modules compiled into packages
+which you can import just using their name, e.g. the math module, the datetime module, the string module
+These are all part of the [Python Standard Library](https://docs.python.org/3/library/index.html)
+
+You can also access the 450,000+ packages at the [pypl.org](pypl.org) site, though some of these
+might contain malware.
+
+and, of course, you can write your own modules. 
+
 ## Data Structures
 Python has essentially the same primitive data types as Java, but integers can be any length, and Python also allows complex numbers (1 + 2 J) where J is the imaginary number rather than the familiar "i"
 
