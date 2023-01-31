@@ -150,9 +150,11 @@ which you can import just using their name, e.g. the math module, the datetime m
 These are all part of the [Python Standard Library](https://docs.python.org/3/library/index.html)
 
 You can also access the 450,000+ packages at the [Python Package/Python Index site: pypi.org](https://pypi.org) site, though some of these
-might contain malware.
+might contain malware. You need to first install these in your system with the 
+[pip3 or pip command](https://packaging.python.org/en/latest/tutorials/installing-packages/)
 
-and, of course, you can write your own modules. 
+
+and, of course, you can (and will) write your own modules. 
 
 ## Data Structures
 Python has essentially the same primitive data types as Java, but integers can be any length, and Python also allows complex numbers (1 + 2 J) where J is the imaginary number rather than the familiar "i"
