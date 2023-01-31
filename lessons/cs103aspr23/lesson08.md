@@ -50,6 +50,13 @@ print('bye')
 [Python identifiers](https://docs.python.org/3/reference/lexical_analysis.html#keywords) are similar to Java. They are case sensitive, can be of any length, and
 consist of letters, digits, and underscores, starting with a letter or underscore.
 
+We usually write multiword identifiers using an underscore between words (SnakeCase)
+rather than capitalizing each word as we do in Java (CamelCase).
+
+Also, we don't start an identifier with underscore except in certain special cases that
+often occur when defining Classes.  Double underscore prefixes are usually reserved for 
+Python internal variables and should be avoided.
+
 Python 3.11 does not allow the following key words to be identifiers:
 ``` python
 False      await      else       import     pass
