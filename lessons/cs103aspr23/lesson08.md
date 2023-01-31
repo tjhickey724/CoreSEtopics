@@ -81,7 +81,7 @@ def functionname(arg1, arg2, ...):
    statementn
    return(expression)  # return statements are optional, and NONE will be return if no return is given
 ```
-Here are some examples:
+Here is an example:
 ``` python
 '''
     demo04 is a module 
@@ -112,3 +112,34 @@ if __name__ == '__main__':  # this only runs if this file is run directly, not i
             print(i, end=', ')  #don't add a newline after printing, add a comma space instead
 ```
 
+## Modules
+A [Python module](https://docs.python.org/3/reference/import.html) is a file that contains Python code.
+You can "import" a module into your program using the import statement.
+For example, if the example above was in the file demo04.py in the same folder
+as the following demo05.py program. We could import it and call it as follows:
+``` python
+``` demo05 shows how to import a module ```
+import demo04
+
+def main():
+    ''' testing out is_prime '''
+    num = input("enter a number: ") # get a number from the user
+    n = int(num) # convert it to an integer
+    if demo04.is_prime(n): # call the is_prime function from demo04
+        print(n,'is prime!')
+    else:
+        print(n,'is not a positive prime number')
+
+main()  # it is better to have all code inside functions, except the call to the main function 
+```
+
+We can also import just a single function from a module:
+``` python
+from demo04 import is_prime
+```
+in which case we can just call is_prime rather than demo04.is_prime
+
+We can also import all functions directly without needing the demo04 prefix using the wildcard *
+``` python
+from demo04 import *
+```
