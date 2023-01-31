@@ -168,6 +168,7 @@ vals=[1,3.14159,'apple pie', True, None]
 print(vals)
 print('the 3rd element is',vals[2])
 ```
+
 Python also allows one to access lists using "slice" notation vals[lo:hi] to get 
 the sublist with indices from lo upto but not including hi
 ``` python
@@ -184,16 +185,27 @@ roses = words[1::3] # a third slice parameter is the step size, any parameter ca
 print(roses)
 print(words[::-1])  # step size of -1 reverses a list
 ```
+### the range generator
+You can generate a list of integers with the range generator range(start, finish, step)
+which generates the list of integers with the specified start, go upto but no including finish, using a step size of step. 
 
-# tuples
+To turn this into a list you need to use the list() function
+but you don't need list when used in a for statement as range just generates one value at a time for the for.
+``` python
+print(list(range(1,100,7)))
+for val in range(100:0:-7):
+   print(i, end=", ")
+```
+
+### tuples
 A tuple is like a list but is formed with parentheses (...) instead of square brackets [....]
 and it is immutable, meaning you cannot change the elements of a tuple. 
 
-# sets
+### sets
 A set is like a list but it contains only immutable objects with no duplicates and is created using
 curly braces {...}
 
-# conversion
+### conversion
 You can convert between these sequence types using the functions list, tuple, and set
 ``` python
 a_list = [1,2,'a','b',2,(2,3,4),'a','1']
@@ -206,7 +218,7 @@ print(list(a_tuple))
 print(list(a_set))
 ```
 
-## Dictionaries
+### Dictionaries
 Dictionaries are key/value stores like HashMaps in Java. They are created with curly braces
 enclosing key:value pairs separated by commas:
 ``` python
