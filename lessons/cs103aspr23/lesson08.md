@@ -98,7 +98,7 @@ Here is an example:
 def is_prime(n):
     ''' returns True if n is a positive prime, False otherwise 
     '''
-    for i in range(2,n):
+    for i in range(2,n):  # range(start,stop) generates the integers from start up to but not including stop
         if n%i== 0:
             return False  # if n is divisible by 2<=i<n it is not prime
         elif i*i>n:
@@ -142,4 +142,15 @@ in which case we can just call is_prime rather than demo04.is_prime
 We can also import all functions directly without needing the demo04 prefix using the wildcard *
 ``` python
 from demo04 import *
+```
+
+## Data Structures
+Python has essentially the same primitive data types as Java, but integers can be any length, and Python also allows complex numbers (1 + 2 J) where J is the imaginary number rather than the familiar "i"
+
+### Lists
+Lists are indicated using square brackets and can have elements of any type
+``` python
+vals=[1,3.14159,'apple pie', True, None]
+print(vals)
+print('the 3rd element is',vals[2])
 ```
