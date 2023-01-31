@@ -23,7 +23,7 @@ create shell commands which look for lines matching a particular regular express
 
 
 
-#Activity -- grep and Regular Expressions
+# Activity -- grep and Regular Expressions
 You should read Chapter 19 in TLCL to review the content we cover today (it should have been on the homework 2 reading list...)
 Regular Expressions are strings of characters representing a particular kind of pattern. There are 15 characters that have special meaning, these are the so-called metacharacters:
 ``` bash
