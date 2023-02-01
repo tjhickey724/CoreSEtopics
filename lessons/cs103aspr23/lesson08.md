@@ -50,7 +50,7 @@ print('bye')
 [Python identifiers](https://docs.python.org/3/reference/lexical_analysis.html#keywords) are similar to Java. They are case sensitive, can be of any length, and
 consist of letters, digits, and underscores, starting with a letter or underscore.
 
-We usually write multiword identifiers using an underscore between words (SnakeCase)
+We usually write multiword identifiers using an underscore between words (snake_case)
 rather than capitalizing each word as we do in Java (CamelCase).
 
 Also, we don't start an identifier with underscore except in certain special cases that
