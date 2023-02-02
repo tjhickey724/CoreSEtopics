@@ -344,4 +344,6 @@ We can create dictionaries using comprehensions as well, e.g.
 words = "a rose is a rose is a rose".split(" ")
 wordset = set(words)
 newdict = {w:words.count(w) for w in wordset}
+... produces
+{'a': 3, 'is': 2, 'rose': 3}
 ```
