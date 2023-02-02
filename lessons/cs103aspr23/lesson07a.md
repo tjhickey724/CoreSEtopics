@@ -1,4 +1,4 @@
-# Lesson 8 - Intro to Python for Java Programmers
+# Lesson 7 - Intro to Python for Java Programmers
 
 Today we do a quick review of Python for Java Programmers.
 
