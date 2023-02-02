@@ -16,7 +16,7 @@ use the IDLE debugger to set breakpoints and step through a program
 
 
 ## Activity -- Our first Python Class
-We discuss the BankAccount class from the Notes on Python Programming
+``` python
 '''
 BankAcccount class is a demo for Object Oriented Programming in Python
 '''
@@ -44,15 +44,20 @@ class BankAccount():
     def transfer(self, account, amount):
         self.balance -= amount
         account.balance += amount
+```
 
 ### Points to discuss:
 
-constructor is __init__(self, ....)
-every instance method needs to have first parameter be "self"
-objects are created with a call to the constructor
+* constructor is __init__(self, ....)
+* every instance method needs to have first parameter be "self"
+* objects are created with a call to the constructor
+``` python 
 a = BankAccount('tim',1000)
-and methods are called using the familiar dot notation
+```
+* methods are called using the familiar dot notation
+``` python
 a.deposit(234)
+```
 
 
 
