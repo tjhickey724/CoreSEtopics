@@ -228,3 +228,120 @@ print(d1['age')
 for key in d1:
     print(key,d1[key])
 ```
+
+## List Comprehensions
+The general structure of a simple list comprehension is
+[EXPRESSION for value in LIST if CONDITION]
+
+This will iterate for each value in the LIST, if satisfies the CONDITION, then it will be used to evalute the EXPRESSION, and the list of all such expressions will be created.
+
+This is equivalent to the following code:
+``` python
+vals = []
+for v in LIST:
+    if CONDITION:
+        vals.append(EXPRESSION)
+```
+
+### Simple Examples of list comprehensions
+For example, to create a list of squares of the odd numbers less that 30,, we could write
+``` python
+vals = [x*x for x in range(30) if x%2==1]
+```
+and this is equivalent to
+``` python
+vals=[]
+for x in range(30):
+    if x%2==1:
+        vals.append(x*x)
+```
+
+
+
+## List Comprehensions and lists of dictionaries
+
+Here is another example, lets find the list of all COSI courses in the Spring 2015 term with at least 50 students.
+Let's first load the courses and clean the data (by making enrolled an integer instead of a string)
+``` python
+import csv
+with open('courses-2014-19.tsv','r') as infile:
+    courses = list(csv.DictReader(infile,delimiter='\t'))
+# clean the data
+for course in courses:
+  course['enrolled'] = int(course['enrolled'])
+
+def print_course(course):
+    ''' prints out the course info in a nice format '''
+    print(course['subject'],course['coursenum'],course['section'],course['title'])
+    print(course['instructor'],course['term'],course['enrolled'],'enrolled')
+# find all CS courses in Spring 2015 with at least 50 students
+cs15 = [ c for c in courses if c['subject']=='COSI' and c['term']=='Spring 2015' and c['enrolled']>=50]
+print(len(cs15))
+# pretty print those courses
+for course in cs15:
+    print_course(course)
+    print('-'*20)
+```
+We could have replaced the list comprehension with a for loop containing a conditional ...
+
+## Comprehensions on sets and tuples
+There are two other Python data structures that are very similar to lists and can be constructed using comprehensions. -- sets and tuples.
+
+Tuples are very similar to lists except for two things:
+tuples are created using parentheses not square brackets, so (1,2) is a tuple and [1,2] is a list.
+a tuple of size 1 is written with a following comma  (7,)  you can also have an extra comma on a list [7,8,9,] 
+and this isn't a bad idea if you might be adding to the list later...
+tuples are immutable, you can't change which values are stored in a tuple, e.g.
+x = ('a', 'b', 'c')   # defines a tuple of 3 strings
+x[0]  # returns 'a'
+x[0]='d'  # throws an error as tuples are immutable
+Recall that strings are also immutable:
+
+x = "abc"
+print(x[0])  # prints 'a'
+x[0]='d' # throws an error
+
+We often use tuples when constructing sets, as all of the elements of a set must be immutable. Hence they are usually numbers, strings, or tuples of immutable elements.
+
+One common Python idiom is to use tuples to assign multiple values to multiple variables, e.g.
+(x,y,z) = (0,5,100)
+
+Sets are constructed with curly braces, and Python will remove any duplicate elements.
+You can also construct an empty set with x=set() and add elements with the add method:
+x=set()
+x.add(5)
+x.add(7)
+s={7,5}
+
+## Set and tuple comprehensions
+We can also use set comprehensions (just like list comprehensions) to create a set:
+``` python
+{c for c in "this is a short sentence"}  # generates the set of characters, including space, in that string
+{course['term'] for course in courses} # generates the set of all terms in the list of courses
+```
+
+Try to create these sets without the comprehensions using an accumulator loop.
+
+We can sort the elements of a set (to get a list) using the function "sorted"
+``` python
+sorted({c for c in "this is a short sentence"} )
+sorted({course['term'] for course in courses} )
+```
+
+Similarly, we can construct tuples with the comprehension syntax:
+```
+(c for c in "this is a short sentence" if c in "aeiou") # creates a tuple of the vowels, in order, in the sentence
+```
+
+Try to construct this without using comprehensions.
+
+## Converting between lists, tuples, and sequences
+Just as we used int, float, and bool to convert strings to integer, decimals, and boolean values, we can use list, tuple, and set to convert between these types of data.
+
+## Dictionary comprehensions
+We can create dictionaries using comprehensions as well, e.g.
+``` python
+words = "a rose is a rose is a rose".split(" ")
+wordset = set(words)
+newdict = {w:words.count(w) for w in wordset}
+```
