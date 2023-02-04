@@ -157,7 +157,7 @@ for any of our modules, e.g.
 will generate documentation on the bank_account module if you have written it and its in the current working directory.
 
 # Object-Oriented Programming in Python
-In this part of the lesson we read through the [official Python Tutorial chapter on Classes](https://docs.python.org/3/tutorial/classes.html#a-first-look-at-classes) 
+In this part of the lesson we read through the [official Python Tutorial chapter on Classes](https://docs.python.org/3/tutorial/classes.html) 
 
 Learning to use programming features by reading documentation is a skill we want you to learn in this class.
 Today we'll demonstrate how to go about learning a feature by reading the documentation and exploring it in real time
