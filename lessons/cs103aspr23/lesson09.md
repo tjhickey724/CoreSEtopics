@@ -98,15 +98,15 @@ print(account.get_balance()) # 125
 ## implementing a simple shell in Python
 Here is another example where we ask chatGPT to implement a simple shell in Python.
 By studying the code we can learn how to implement a shell and it also shows us 
-which new packages we might want to learn (in this case the "os" package).
+which new packages we might want to learn (in this case the ["os" package](https://docs.python.org/3/library/os.html)).
 
 ``` python
+#!/usr/bin/python3
+
 '''
 my_gpt_demo.py 
 Enter a prompt: Write a Python program to implement a simple shell to process the ls, cd, pwd, and mkdir commands
 '''
-
-#!/usr/bin/env python3
 
 import os
 
@@ -136,5 +136,6 @@ def my_shell():
 
 if __name__=='__main__':
     my_shell()
+
 
 ```
