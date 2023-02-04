@@ -139,3 +139,11 @@ if __name__=='__main__':
 
 
 ```
+
+## Python Programming Style
+The Python developer community has agreed on a comprehensive style guide
+You can check if your programs follow that guide using the pylint command
+and you can get more information about the warnings it generates at the [pylint message page](https://pylint.readthedocs.io/en/latest/user_guide/messages/index.html)
+
+Visit the [pylint website](https://pylint.readthedocs.io/en/latest/index.html) to see how to install and run pylint on your code. 
+You should run pylint on all of your python programs in this class.
