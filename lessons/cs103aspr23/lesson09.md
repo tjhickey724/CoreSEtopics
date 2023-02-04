@@ -2,7 +2,7 @@
 This lesson continues discussion of OOP in Python but we also show how to use GPT to help learn new programming concepts, like OOP.
 
 ## the GPT API
-The following Python program allows you to access the GPT server from Python.
+The following Python program allows you to access the [GPT API](https://platform.openai.com/docs/introduction/overview) from Python.
 To use it you will need to get an API key from openAI.com as mentioned in the comment
 
 ``` python
