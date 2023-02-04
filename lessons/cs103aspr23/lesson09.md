@@ -147,3 +147,11 @@ and you can get more information about the warnings it generates at the [pylint 
 
 Visit the [pylint website](https://pylint.readthedocs.io/en/latest/index.html) to see how to install and run pylint on your code. 
 You should run pylint on all of your python programs in this class.
+
+## Python Documentation
+We can use the [pydoc module](https://docs.python.org/3/library/pydoc.html) to generate a nice documentation page 
+for any of our modules, e.g.
+``` bash
+% python3 -m pydoc bank_account.py | less
+```
+will generate documentation on the bank_account module if you have written it and its in the current working directory.
