@@ -91,10 +91,4 @@ We also look over some other documents about coding style in Python
 [zen-of-python](https://docs.python-guide.org/writing/style/#zen-of-python)
 
 
-# Object-Oriented Programming in Python
-In this part of the lesson we read through the [official Python Tutorial chapter on Classes](https://docs.python.org/3/tutorial/classes.html#a-first-look-at-classes) 
-
-Learning to use programming features by reading documentation is a skill we want you to learn in this class.
-Today we'll demonstrate how to go about learning a feature by reading the documentation and exploring it in real time
-with Python tutor and the Python shell and Visual Studio Code.
 
