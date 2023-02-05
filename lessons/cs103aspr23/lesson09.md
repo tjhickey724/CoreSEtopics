@@ -370,7 +370,7 @@ and it uses quaternion multiplication to compose rotations
 
 import math
 from quaternion import Quaternion
-from vector import Vector3
+from vector3 import Vector3
 
 
 
@@ -473,7 +473,6 @@ def test_code():
 
 if __name__=='__main__':
     test_code()
-
 
 ```
 
