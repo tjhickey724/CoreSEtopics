@@ -172,7 +172,14 @@ Some of the main reasons are:
 * overloading operators (Python let's you define multiplication addition etc of your own objects.
 
 ## Quaternion example
-Here is an example of the Quaternion class, created with the help of github copilot
+Here is an example of the Quaternion class, created with the help of github copilot.
+
+The __ZZZ___ methods correspond to special methods, e.g. __add__ is called when it evaluates q1+q2
+and __eq__ is called when it evaluates the condition q1==q2. This allows for operator overloading
+which can make your code much easier to read when it applies.
+
+
+
 ``` python
 '''
     The Quaternion class represents elements of Hamilton's quanterions.
@@ -253,14 +260,9 @@ class Quaternion():
         ''' return q for the expression +q'''
         return self
 
-    def __invert__(self):
-        ''' the inverse of q ... 1/q or q^{-1}'''
-        return self.inverse()
-
     def __nonzero__(self):
         ''' test that q!=0 '''
         return self.w != 0 or self.x != 0 or self.y != 0 or self.z != 0
-    
     
     def __cmp__(self, other):
         ''' returns cpm(self,other) 
@@ -283,7 +285,7 @@ class Quaternion():
         return Quaternion(self.w, -self.x, -self.y, -self.z) / abs(self)
 
     def conjugate(self):
-        ''' (w+ai+bj+ck).conjugate -> w-ai-bj-ck '''
+        ''' (w+ai+bj+ck).conjugate() -> w-ai-bj-ck '''
         return Quaternion(self.w, -self.x, -self.y, -self.z)
     
     def normalize(self):
@@ -315,6 +317,7 @@ if __name__=='__main__':
     print("\n\nhere is a purely imaginary quaternion q of length 1, these always square to -1")
     print('q =',q)
     print('q**2 = ',q*q)
+   
    
 ```
 
