@@ -174,8 +174,14 @@ Some of the main reasons are:
 ## Quaternion example
 Here is an example of the Quaternion class, created with the help of github copilot.
 
-The __ZZZ___ methods correspond to special methods, e.g. __add__ is called when it evaluates q1+q2
-and __eq__ is called when it evaluates the condition q1==q2. This allows for operator overloading
+The ``` __ZZZ___``` methods correspond to special methods, e.g. 
+
+```__add__``` is called when it evaluates ```q1+q2```
+and 
+
+```__eq__``` is called when it evaluates the condition ```q1==q2```. 
+
+This allows for operator overloading
 which can make your code much easier to read when it applies.
 
 
@@ -192,6 +198,8 @@ which can make your code much easier to read when it applies.
 
     author: Tim Hickey and chatGPT
     date: 2/5/2023
+
+    reference: https://mathworld.wolfram.com/Quaternion.html
 
 '''
 import math
@@ -317,8 +325,7 @@ if __name__=='__main__':
     print("\n\nhere is a purely imaginary quaternion q of length 1, these always square to -1")
     print('q =',q)
     print('q**2 = ',q*q)
-   
-   
+     
 ```
 
 and here is an example of using the Quaternion class to rotate 3d vectors 
