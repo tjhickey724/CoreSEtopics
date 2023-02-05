@@ -337,19 +337,15 @@ if __name__=='__main__':
      
 ```
 
-and here is an example of using the Quaternion class to rotate 3d vectors 
+## Using Quaterions to rotate vectors in 3d space
+Here is an example of using the Quaternion class to rotate 3d vectors 
 a given angle around an axis of rotation. This is very commonly used in 3d graphics and games.
+
+First we need to define the Vector3 class
 ``` python
 '''
-a general rigid body rotation in 3 dimensions
-
-this implements 3D rotations using Quaternionic conjugation 
-to calculate the Rodriguez Rotation formula in 3d
-and it uses quaternion multiplication to compose rotations
+  Vector 3 is a 3 dimensional vector of floats
 '''
-
-import math
-from quaternion import *
 
 class Vector3():
     ''' this represents 3d vectors '''
@@ -366,6 +362,27 @@ class Vector3():
     def __repr__(self):
         ''' return a string in the form of a constructor'''
         return f'(Vector3({self.x},{self.y},{self.z})'
+
+
+```
+
+Now we can use it in the Rotation class. Note this also gives an example
+of a static method used as a factory to create new Rotations without a constructor.
+
+
+``` python
+
+'''
+a general rigid body rotation in 3 dimensions
+
+this implements 3D rotations using Quaternionic conjugation 
+to calculate the Rodriguez Rotation formula in 3d
+and it uses quaternion multiplication to compose rotations
+'''
+
+import math
+from quaternion import Quaternion
+from vector import Vector3
 
 
 
@@ -392,7 +409,8 @@ class Rotation():
 
     def set_rotation(self,angle,x,y,z):
         ''' create a rotation of angle degrees around axis (x,y,z) 
-            and use that to form a unit quaternion   
+            and use that to form a unit quaternion  
+            This is a factory method .. it creates an object, but isn't a constructor. 
         '''
         radians = angle/180*math.pi
         c = math.cos(radians/2)
@@ -400,6 +418,19 @@ class Rotation():
         d = math.sqrt(x*x+y*y+z*z)
         self.q = Quaternion(c,s*x/d,s*y/d,s*z/d)
         return self
+    
+    @staticmethod
+    def rotation(angle,x,y,z):
+        ''' return a rotation of angle degrees around axis (x,y,z) 
+
+            this is a static method called as
+            r = Rotation.rotation(45,0,1,0) 
+        '''
+        radians = angle/180*math.pi
+        c = math.cos(radians/2)
+        s = math.sin(radians/2)
+        d = math.sqrt(x*x+y*y+z*z)
+        return Rotation(Quaternion(c,s*x/d,s*y/d,s*z/d))
     
     def __str__(self):
         ''' print a rotation by finding the angle and unit vector in 3d space from the quaternion '''
@@ -428,7 +459,8 @@ if __name__=='__main__':
 
     print('rotate v=(1,2,3) by 120 degrees around (1,1,1) three times to get w1, w2, and w3')
     v = Vector3(1,2,3)
-    r = Rotation().set_rotation(120,1,1,1)
+    #r = Rotation().set_rotation(120,1,1,1)
+    r = Rotation.rotation(120,1,1,1)  # here we use a static method to create a rotation object
     w1 = r.rotate(v)
     w2 = r.rotate(w1)
     w3 = r.rotate(w2)
@@ -441,18 +473,21 @@ if __name__=='__main__':
     
     print('rotate (1,1,1) 180 degrees around the y axis to get (-1,1,-1)')
     v = Vector3(1,1,1)
-    r = Rotation().set_rotation(180,0,1,0)
+    r = Rotation.rotation(180,0,1,0)
     print(r.rotate(v))
     print()
 
     print('rotate (1,0,0) 45 degrees counterclockwise around y axis to get: (sqrt(1/2),0,-sqrt(1/2))')
-    print(Rotation().set_rotation(45,0,1,0).rotate(Vector3(1,0,0)))
+    print(Rotation.rotation(45,0,1,0).rotate(Vector3(1,0,0)))
     print()
 
     print('cube the rotation by 120 around (1,1,1) to get the identity 1+0i+0j+0k')
-    r = Rotation().set_rotation(120,1,1,1)
+    r = Rotation.rotation(120,1,1,1)
     print('r^3=',r*r*r)
     print('r^3.q=',(r*r*r).q)
+
+
+
 
 ```
 
