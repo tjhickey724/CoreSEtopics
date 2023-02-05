@@ -163,4 +163,214 @@ Learning to use programming features by reading documentation is a skill we want
 Today we'll demonstrate how to go about learning a feature by reading the documentation and exploring it in real time
 with Python tutor and the Python shell and Visual Studio Code.
 
+## Why create and use objects to solve problems?
+Why not just use functions? We'll have a discussion about this.
+Some of the main reasons are:
+* information hiding 
+* namespace handling (but modules do that too)
+* reducing redunancy through inheritance
+* overloading operators (Python let's you define multiplication addition etc of your own objects.
+
+## Quaternion example
+Here is an example of the Quaternion class, created with the help of github copilot
+``` python
+import math
+
+class Quaternion():
+    '''
+      this implements quaternion arithmetic
+    '''
+    def __init__(self, w, x, y, z):
+        self.w = w
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def __str__(self):
+        return "Quaternion(%s, %s, %s, %s)" % (self.w, self.x, self.y, self.z)  
+
+    def __add__(self, other):
+        return Quaternion(self.w + other.w, self.x + other.x, self.y + other.y, self.z + other.z)
+
+    def __sub__(self, other):
+        return Quaternion(self.w - other.w, self.x - other.x, self.y - other.y, self.z - other.z)
+    
+    def __mul__(self, other):
+        return Quaternion(self.w * other.w - self.x * other.x - self.y * other.y - self.z * other.z,
+                          self.w * other.x + self.x * other.w + self.y * other.z - self.z * other.y,
+                          self.w * other.y - self.x * other.z + self.y * other.w + self.z * other.x,
+                          self.w * other.z + self.x * other.y - self.y * other.x + self.z * other.w)
+
+    def __div__(self, other):
+        return self * other.inverse()
+    
+    def __eq__(self, other):
+        return self.w == other.w and self.x == other.x and self.y == other.y and self.z == other.z
+    
+    def __ne__(self, other):
+        return not self == other
+    
+    def __abs__(self):
+        return math.sqrt(self.w * self.w + self.x * self.x + self.y * self.y + self.z * self.z)
+    
+    def __neg__(self):
+        return Quaternion(-self.w, -self.x, -self.y, -self.z)
+    
+    def __pos__(self):
+        return self
+
+    def __invert__(self):
+        return self.inverse()
+
+    def __nonzero__(self):
+        return self.w != 0 or self.x != 0 or self.y != 0 or self.z != 0
+    
+    
+    def __cmp__(self, other):
+        return cmp((self.w, self.x, self.y, self.z), (other.w, other.x, other.y, other.z))
+    
+    def __repr__(self):
+        return "Quaternion(%s, %s, %s, %s)" % (self.w, self.x, self.y, self.z)
+    
+    def __call__(self, w, x, y, z):
+        return Quaternion(w, x, y, z)
+    
+    def inverse(self):
+        return Quaternion(self.w, -self.x, -self.y, -self.z) / abs(self)
+
+    def conjugate(self):
+        return Quaternion(self.w, -self.x, -self.y, -self.z)
+    
+    def normalize(self):
+        return self / abs(self)
+ 
+    def toTuple(self):
+        '''
+          this converts a quaternion to a tuple
+        '''
+        return (self.w, self.x, self.y, self.z)
+    
+    def toList(self):
+        '''
+          this converts a quaternion to a list
+        '''
+        return [self.w, self.x, self.y, self.z]
+    
+    def toDict(self):
+        '''
+          this converts a quaternion to a dict
+        '''
+        return {'w': self.w, 'x': self.x, 'y': self.y, 'z': self.z}
+    
+
+if __name__=='__main__':
+    q=Quaternion(0,1,1,1)*Quaternion(1/math.sqrt(3),0,0,0)
+    print('q',q)
+    print('q**2',q*q)
+```
+
+and here is an example of using the Quaternion class to rotate 3d vectors 
+a given angle around an axis of rotation. This is very commonly used in 3d graphics and games.
+``` python
+'''
+this implements 3D rotations using Quaternionic conjugation 
+to calculate the Rodriguez Rotation formula in 3d
+'''
+
+import math
+from quaternion import *
+
+class Vector3():
+    ''' this represents 3d vectors '''
+    def __init__(self,x,y,z):
+        ''' store the 3 components in instance variables'''
+        self.x=x
+        self.y=y
+        self.z=z
+    
+    def __str__(self):
+        ''' return a string in the standard form (x,y,z) '''
+        return f'({self.x},{self.y},{self.z})'
+
+
+
+class Rotation():
+    '''
+        this represents rotations in 3d space
+        by specifying a vector to rotate around (the axis of rotation) (x,y,z)
+        and the angle to rotate around that vector 
+        (counter clockwise looking down the vector)
+        The rotations are represented by a quaternion
+        and the rotation is performed by a conjugation v' = q*v*q'
+        where v is a pure imaginary quaternion and v' is its rotation.
+    '''
+    def __init__(self,q=Quaternion(1,0,0,0)):
+        ''' initialize the rotation with the identity quaternion, or some other one'''
+        self.q=q
+
+    def set_rotation(self,angle,x,y,z):
+        ''' create a rotation of angle degrees around axis (x,y,z) 
+            and use that to form a unit quaternion   
+        '''
+        radians = angle/180*math.pi
+        c = math.cos(radians/2)
+        s = math.sin(radians/2)
+        d = math.sqrt(x*x+y*y+z*z)
+        self.q = Quaternion(c,s*x/d,s*y/d,s*z/d)
+        return self
+    
+    def __str__(self):
+        ''' print a rotation by finding the angle and unit vector in 3d space from the quaternion '''
+        angle = math.acos(self.q.w)
+        s=math.sin(angle)
+        if s!=0:
+            return(f'{2*angle/math.pi*180} degrees around({self.q.x/s},{self.q.y/s},{self.q.z/s}).')
+        else:
+            return('identity rotation')
+    
+    def __mul__(self, other):
+        ''' compose two rotations by multiplying their quaternions !! '''
+        return Rotation(self.q*other.q)
+    
+    def rotate(self,vector):
+        ''' rotate a vector around an axis by conjugating it with the rotation quaternion '''
+        v = Quaternion(0,vector.x,vector.y,vector.z)
+        q1 = self.q*v*self.q.conjugate()
+        #print(q1)
+        return Vector3(q1.x,q1.y,q1.z)
+
+
+if __name__=='__main__':
+    '''
+        this demo shows how to use quaternions to rotate vectors with quaternion conjugation
+    ''' 
+
+    print('rotate v=(1,2,3) by 120 degrees around (1,1,1) three times to get w1, w2, and w3')
+    v = Vector3(1,2,3)
+    r = Rotation().set_rotation(120,1,1,1)
+    w = r.rotate(v)
+    w2 = r.rotate(w)
+    w3 = r.rotate(w2)
+    print('r=',r)
+    print('v=',v)
+    print('w1=',w)
+    print('w2=',w2)
+    print('w3=',w3)
+    print()
+    
+    print('rotate (1,1,1) 180 degrees around the y axis to get')
+    v = Vector3(1,1,1)
+    r = Rotation().set_rotation(180,0,1,0)
+    print(r.rotate(v))
+    print()
+
+    print('rotate (1,0,0) 45 degrees counterclockwise around y axis to get:')
+    print(Rotation().set_rotation(45,0,1,0).rotate(Vector3(1,0,0)))
+    print()
+
+    print('cube the rotation by 120 around (1,1,1) to get the identity')
+    r = Rotation().set_rotation(120,1,1,1)
+    print('r^3=',r*r*r)
+    print('r^3.q=',(r*r*r).q)
+```
 
