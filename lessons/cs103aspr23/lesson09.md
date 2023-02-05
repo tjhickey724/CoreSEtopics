@@ -385,7 +385,7 @@ from vector import Vector3
 
 
 
-class Rotation():
+class Rotation_3d():
     '''
         this represents rotations in 3d space
 
@@ -423,13 +423,13 @@ class Rotation():
         ''' return a rotation of angle degrees around axis (x,y,z)
 
             this is a static method called as
-            r = Rotation.rotation(45,0,1,0)
+            r = Rotation_3d.rotation(45,0,1,0)
         '''
         radians = angle/180*math.pi
         c = math.cos(radians/2)
         s = math.sin(radians/2)
         d = math.sqrt(x*x+y*y+z*z)
-        return Rotation(Quaternion(c,s*x/d,s*y/d,s*z/d))
+        return Rotation_3d(Quaternion(c,s*x/d,s*y/d,s*z/d))
 
     def __str__(self):
         ''' print a rotation by finding the angle
@@ -442,7 +442,7 @@ class Rotation():
 
     def __mul__(self, other):
         ''' compose two rotations by multiplying their quaternions !! '''
-        return Rotation(self.q*other.q)
+        return Rotation_3d(self.q*other.q)
 
     def rotate(self,vector):
         ''' rotate a vector around an axis by conjugating it with the rotation quaternion '''
@@ -455,8 +455,7 @@ def test_code():
 
     print('rotate v=(1,2,3) by 120 degrees around (1,1,1) three times to get w1, w2, and w3')
     v = Vector3(1,2,3)
-    #r = Rotation().set_rotation(120,1,1,1)
-    r = Rotation.rotation(120,1,1,1)  # here we use a static method to create a rotation object
+    r = Rotation_3d.rotation(120,1,1,1)  # here we use a static method to create a rotation object
     w1 = r.rotate(v)
     w2 = r.rotate(w1)
     w3 = r.rotate(w2)
@@ -469,22 +468,23 @@ def test_code():
 
     print('rotate (1,1,1) 180 degrees around the y axis to get (-1,1,-1)')
     v = Vector3(1,1,1)
-    r = Rotation.rotation(180,0,1,0)
+    r = Rotation_3d.rotation(180,0,1,0)
     print(r.rotate(v))
     print()
 
     print('rotate (1,0,0) 45 degrees counterclockwise around y axis')
     print('to get: (sqrt(1/2),0,-sqrt(1/2))')
-    print(Rotation.rotation(45,0,1,0).rotate(Vector3(1,0,0)))
+    print(Rotation_3d.rotation(45,0,1,0).rotate(Vector3(1,0,0)))
     print()
 
     print('cube the rotation by 120 around (1,1,1) to get the identity 1+0i+0j+0k')
-    r = Rotation.rotation(120,1,1,1)
+    r = Rotation_3d.rotation(120,1,1,1)
     print('r^3=',r*r*r)
     print('r^3.q=',(r*r*r).q)
 
 if __name__=='__main__':
     test_code()
+
 
 ```
 
