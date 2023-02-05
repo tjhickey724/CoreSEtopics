@@ -174,11 +174,31 @@ Some of the main reasons are:
 ## Quaternion example
 Here is an example of the Quaternion class, created with the help of github copilot
 ``` python
+'''
+    The Quaternion class represents elements of Hamilton's quanterions.
+
+    Quaternions are like complex numbers a+bi 
+    but they have two more imaginary values j,k with 
+    i^2 = j^2 = k^2 = ijk = -1
+    and ij=k=-ji, jk=i=-kj, ki=j=-ik 
+    So they have the form a+bi+cj+dk and are associative and non-commutative.
+
+    author: Tim Hickey and chatGPT
+    date: 2/5/2023
+
+'''
 import math
 
 class Quaternion():
     '''
-      this implements quaternion arithmetic
+      a quaternion: r+xi+yj+zk  where i,j,k are imaginary and r,a,b,c are real
+
+      Attributes:
+        w: the real part
+        x: the coefficient of i
+        y: the coefficient of j
+        z: the coefficiant of k
+
     '''
     def __init__(self, w, x, y, z):
         self.w = w
@@ -187,62 +207,89 @@ class Quaternion():
         self.z = z
 
     def __str__(self):
-        return "Quaternion(%s, %s, %s, %s)" % (self.w, self.x, self.y, self.z)  
+        ''' return a readable version in the form r + ai + bj + ck'''
+        return "%s +%s i+ %sj + %sk" % (self.w, self.x, self.y, self.z)  
+    
+    def __repr__(self):
+        ''' return a version that can be used to reconstruct itself, i.e. the constructor '''
+        return "Quaternion(%s, %s, %s, %s)" % (self.w, self.x, self.y, self.z) 
 
     def __add__(self, other):
+        ''' return the sum of this quaternion with the other  q+p'''
         return Quaternion(self.w + other.w, self.x + other.x, self.y + other.y, self.z + other.z)
 
     def __sub__(self, other):
+        ''' return the difference of this quaternion with the other  q-p '''
         return Quaternion(self.w - other.w, self.x - other.x, self.y - other.y, self.z - other.z)
     
     def __mul__(self, other):
+        ''' return the product of this quaternion with the other  q*p'''
         return Quaternion(self.w * other.w - self.x * other.x - self.y * other.y - self.z * other.z,
                           self.w * other.x + self.x * other.w + self.y * other.z - self.z * other.y,
                           self.w * other.y - self.x * other.z + self.y * other.w + self.z * other.x,
                           self.w * other.z + self.x * other.y - self.y * other.x + self.z * other.w)
 
     def __div__(self, other):
+        ''' return the quotient of this quaternion by the other  q/p'''
         return self * other.inverse()
     
     def __eq__(self, other):
+        ''' test for equality q==r'''
         return self.w == other.w and self.x == other.x and self.y == other.y and self.z == other.z
     
     def __ne__(self, other):
+        ''' test for inequality q!=r '''
         return not self == other
     
     def __abs__(self):
+        ''' return the length of q ... abs(q)'''
         return math.sqrt(self.w * self.w + self.x * self.x + self.y * self.y + self.z * self.z)
     
     def __neg__(self):
+        ''' return the negation of q ... -q '''
         return Quaternion(-self.w, -self.x, -self.y, -self.z)
     
     def __pos__(self):
+        ''' return q for the expression +q'''
         return self
 
     def __invert__(self):
+        ''' the inverse of q ... 1/q or q^{-1}'''
         return self.inverse()
 
     def __nonzero__(self):
+        ''' test that q!=0 '''
         return self.w != 0 or self.x != 0 or self.y != 0 or self.z != 0
     
     
     def __cmp__(self, other):
+        ''' returns cpm(self,other) 
+            is positive if self>other, negative if self<other, zero if self==other
+            compared as a tuple of numbers, lexicographically
+        
+        '''
         return cmp((self.w, self.x, self.y, self.z), (other.w, other.x, other.y, other.z))
     
-    def __repr__(self):
-        return "Quaternion(%s, %s, %s, %s)" % (self.w, self.x, self.y, self.z)
     
     def __call__(self, w, x, y, z):
+        ''' this lets a quaternion act as a constructor
+            q = Quaternion(1,0,0,0)
+            q1 = q(0,1,0,0) # makes a new quaternion and doesn't change q
+        '''
         return Quaternion(w, x, y, z)
     
     def inverse(self):
+        ''' returns 1/self '''
         return Quaternion(self.w, -self.x, -self.y, -self.z) / abs(self)
 
     def conjugate(self):
+        ''' (w+ai+bj+ck).conjugate -> w-ai-bj-ck '''
         return Quaternion(self.w, -self.x, -self.y, -self.z)
     
     def normalize(self):
-        return self / abs(self)
+        ''' maps self into a unit quaternion, i.e. one of length 1'''
+        d = abs(self)
+        return Quaternion(self.w/d, self.x/d, self.y/d, self.z/d)
  
     def toTuple(self):
         '''
@@ -264,17 +311,22 @@ class Quaternion():
     
 
 if __name__=='__main__':
-    q=Quaternion(0,1,1,1)*Quaternion(1/math.sqrt(3),0,0,0)
-    print('q',q)
-    print('q**2',q*q)
+    q=Quaternion(0,1,1,1).normalize()
+    print("\n\nhere is a purely imaginary quaternion q of length 1, these always square to -1")
+    print('q =',q)
+    print('q**2 = ',q*q)
+   
 ```
 
 and here is an example of using the Quaternion class to rotate 3d vectors 
 a given angle around an axis of rotation. This is very commonly used in 3d graphics and games.
 ``` python
 '''
+a general rigid body rotation in 3 dimensions
+
 this implements 3D rotations using Quaternionic conjugation 
 to calculate the Rodriguez Rotation formula in 3d
+and it uses quaternion multiplication to compose rotations
 '''
 
 import math
@@ -291,18 +343,29 @@ class Vector3():
     def __str__(self):
         ''' return a string in the standard form (x,y,z) '''
         return f'({self.x},{self.y},{self.z})'
+    
+    def __repr__(self):
+        ''' return a string in the form of a constructor'''
+        return f'(Vector3({self.x},{self.y},{self.z})'
 
 
 
 class Rotation():
     '''
         this represents rotations in 3d space
+
         by specifying a vector to rotate around (the axis of rotation) (x,y,z)
         and the angle to rotate around that vector 
         (counter clockwise looking down the vector)
+
         The rotations are represented by a quaternion
         and the rotation is performed by a conjugation v' = q*v*q'
         where v is a pure imaginary quaternion and v' is its rotation.
+
+        Attributes:
+            q: the unit quaternion of the form (c,s*a,s*b,s*c)
+            where c=cos(2t), s=sin(t2) and 
+            the rotation is t degrees around the axis of rotation (a,b,c)
     '''
     def __init__(self,q=Quaternion(1,0,0,0)):
         ''' initialize the rotation with the identity quaternion, or some other one'''
@@ -336,7 +399,6 @@ class Rotation():
         ''' rotate a vector around an axis by conjugating it with the rotation quaternion '''
         v = Quaternion(0,vector.x,vector.y,vector.z)
         q1 = self.q*v*self.q.conjugate()
-        #print(q1)
         return Vector3(q1.x,q1.y,q1.z)
 
 
@@ -348,29 +410,30 @@ if __name__=='__main__':
     print('rotate v=(1,2,3) by 120 degrees around (1,1,1) three times to get w1, w2, and w3')
     v = Vector3(1,2,3)
     r = Rotation().set_rotation(120,1,1,1)
-    w = r.rotate(v)
-    w2 = r.rotate(w)
+    w1 = r.rotate(v)
+    w2 = r.rotate(w1)
     w3 = r.rotate(w2)
-    print('r=',r)
+    print('rotation=',r)
     print('v=',v)
-    print('w1=',w)
+    print('w1=',w1)
     print('w2=',w2)
     print('w3=',w3)
     print()
     
-    print('rotate (1,1,1) 180 degrees around the y axis to get')
+    print('rotate (1,1,1) 180 degrees around the y axis to get (-1,1,-1)')
     v = Vector3(1,1,1)
     r = Rotation().set_rotation(180,0,1,0)
     print(r.rotate(v))
     print()
 
-    print('rotate (1,0,0) 45 degrees counterclockwise around y axis to get:')
+    print('rotate (1,0,0) 45 degrees counterclockwise around y axis to get: (sqrt(1/2),0,-sqrt(1/2))')
     print(Rotation().set_rotation(45,0,1,0).rotate(Vector3(1,0,0)))
     print()
 
-    print('cube the rotation by 120 around (1,1,1) to get the identity')
+    print('cube the rotation by 120 around (1,1,1) to get the identity 1+0i+0j+0k')
     r = Rotation().set_rotation(120,1,1,1)
     print('r^3=',r*r*r)
     print('r^3.q=',(r*r*r).q)
+
 ```
 
