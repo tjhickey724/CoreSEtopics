@@ -166,10 +166,15 @@ with Python tutor and the Python shell and Visual Studio Code.
 ## Why create and use objects to solve problems?
 Why not just use functions? We'll have a discussion about this.
 Some of the main reasons are:
-* information hiding 
-* namespace handling (but modules do that too)
+* information hiding - 
+    * the user only needs to know how to use the class, not how it is implemented
+    * this allows us to change the implementation without breaking anyone's code
+* namespace handling 
+    * by defining methods instead of function there is less danger of redefining one of the user's own functions
 * reducing redunancy through inheritance
+    * as in Java
 * overloading operators (Python let's you define multiplication addition etc of your own objects.
+    * Python lets us define methods to handle standard arithmetic operators on our own objects, e.g. multiplying objects!
 
 ## Quaternion example
 Here is an example of the Quaternion class, created with the help of github copilot.
@@ -183,6 +188,10 @@ and
 
 This allows for operator overloading
 which can make your code much easier to read when it applies.
+
+You can learn more about quaternions at the [Wolfram quaternion page](https://mathworld.wolfram.com/Quaternion.html)
+and by reading the module comment. These are interesting mathematical objects and very useful in 3d graphics and game engines.
+
 
 
 
