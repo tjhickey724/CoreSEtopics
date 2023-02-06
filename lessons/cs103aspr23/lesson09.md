@@ -400,18 +400,6 @@ class Rotation_3d():
         ''' initialize the rotation with the identity quaternion, or some other one'''
         self.q=q
 
-    def set_rotation(self,angle,x,y,z):
-        ''' create a rotation of angle degrees around axis (x,y,z)
-            and use that to form a unit quaternion
-            This is a factory method .. it creates an object, but isn't a constructor.
-        '''
-        radians = angle/180*math.pi
-        c = math.cos(radians/2)
-        s = math.sin(radians/2)
-        d = math.sqrt(x*x+y*y+z*z)
-        self.q = Quaternion(c,s*x/d,s*y/d,s*z/d)
-        return self
-
     @staticmethod
     def rotation(angle,x,y,z):
         ''' return a rotation of angle degrees around axis (x,y,z)
