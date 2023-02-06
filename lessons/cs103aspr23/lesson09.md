@@ -169,6 +169,10 @@ Some of the main reasons are:
 * information hiding - 
     * the user only needs to know how to use the class, not how it is implemented
     * this allows us to change the implementation without breaking anyone's code
+* code reuse --
+    * a well-defined class can be used in many contexts (and you can share it on pypi.org with the world!)
+* managing complexity
+    * we can use classes to break a complex problem into smaller pieces and thereby simplify the code
 * namespace handling 
     * by defining methods instead of function there is less danger of redefining one of the user's own functions
 * reducing redunancy through inheritance
@@ -178,6 +182,7 @@ Some of the main reasons are:
 
 ## Quaternion example
 Here is an example of the Quaternion class, created with the help of github copilot.
+This is an example of a more complex class and illustrates well many of the features of Python classes...
 
 The ``` __ZZZ___``` methods correspond to special methods, e.g. 
 
