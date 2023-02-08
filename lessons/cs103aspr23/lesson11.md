@@ -3,7 +3,10 @@ Today we begin by talking about how to use git in a team
 
 ## Github
 Github is one of the most well-known git repository servers.  Everyone should register for a git account
-so you can practice using git. You'll use it in a team project soon.
+so you can practice using git. You'll use it in a team project soon. Visit this site to register
+``` bash
+https://github.com
+```
 
 ## Cloning a repository
 The simplest way to connect to a git repository on github is to clone an existing repository.
