@@ -1,4 +1,4 @@
-# Githum and using GIT for team collaboration
+# Github and using GIT for team collaboration
 Today we begin by talking about how to use git in a team
 
 ## Github
