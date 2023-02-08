@@ -57,4 +57,9 @@ You can find the files which contain conflicts (and the line numbers) using
 git diff --check
 ```
 
+## Practice
 It is a good idea to practice some of these skills!
+We can have each team pick a captain, the captain creates a repository and adds team members
+The team members all clone down the team project
+Then have everyone practice editing the same document and resolving conflicts..
+
