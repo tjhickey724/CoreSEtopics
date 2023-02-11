@@ -33,3 +33,10 @@ It is a good idea to practice some of these skills!
 We can have each team pick a captain, the captain creates a repository and adds team members
 The team members all clone down the team project
 Then have everyone practice editing the same document and resolving conflicts..
+
+# Automated Testing with pytest
+References:
+* read [pytest documentation](https://docs.pytest.org/en/7.2.x/)
+* read [Python testing with Pytest by Brian Okken](https://learning.oreilly.com/library/view/python-testing-with/9781680502848/)
+
+
