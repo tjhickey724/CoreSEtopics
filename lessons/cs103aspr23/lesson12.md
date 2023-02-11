@@ -35,8 +35,21 @@ The team members all clone down the team project
 Then have everyone practice editing the same document and resolving conflicts..
 
 # Automated Testing with pytest
-References:
+## References:
 * read [pytest documentation](https://docs.pytest.org/en/7.2.x/)
 * read [Python testing with Pytest by Brian Okken](https://learning.oreilly.com/library/view/python-testing-with/9781680502848/)
 
+## Overview
+The key idea is to create files of the form test_ZZZZ.py which pytest will find and run.
+
+Tests consist of 4 steps:
+
+setup the environment (using fixtures)
+call some functions or methods (using assertions)
+test the results -- this is done with the "assert" statement
+tear down the environment
+
+We'll also show how you can "mark" some of the tests and the only run the tests with particular marks.
+
+We start by looking at the [Getting Started with pytest page](https://docs.pytest.org/en/7.2.x/)
 
