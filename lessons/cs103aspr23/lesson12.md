@@ -44,12 +44,12 @@ The key idea is to create files of the form test_ZZZZ.py which pytest will find 
 
 Tests consist of 4 steps:
 
-setup the environment (using fixtures)
-call some functions or methods (using assertions)
-test the results -- this is done with the "assert" statement
-tear down the environment
+* setup the environment (using fixtures)
+* call some functions or methods (using assertions)
+* test the results -- this is done with the "assert" statement
+* tear down the environment
 
-We'll also show how you can "mark" some of the tests and the only run the tests with particular marks.
+We'll look at the setting up and tearing down later, for now we focus on assertions and testing.
 
 We start by looking at the [Getting Started with pytest page](https://docs.pytest.org/en/7.2.x/)
 
