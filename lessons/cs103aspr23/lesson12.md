@@ -109,3 +109,8 @@ There are two key ideas here -- assert and pytest.raises
 pytest will use the assert statements to see if the code passes or fails the test
 Likewise, it uses pytest.raises(E) to see if the code properly raises the exception E when run
 
+## Practice
+Let's practice by
+* splitting the test_mul code into two tests .. test_mul and test_conjugate
+* writing tests for sub, div, and ne
+
