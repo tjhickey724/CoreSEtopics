@@ -34,8 +34,9 @@ clean(" 1 234 567")
 population = [clean(d[total_pop]) for d in data]
 print(population)
 
-# plot the population data
+# plot the population data in a figure 20 wide and 10 deep
 # add a title, axis labels, and specify the axis dimensions
+plt.figure(figsize=(20,10))
 plt.plot(years,population,label='population')
 plt.grid()
 plt.axis([1950,2030,0,1e7])
@@ -47,6 +48,7 @@ plt.ylabel('population')
 fertility_rate='Total Fertility Rate (live births per woman)'
 fertility = [clean(d[fertility_rate]) for d in data]
 print(fertility)
+plt.figure(figsize=(20,10))
 plt.plot(years,fertility)
 plt.axis([1950,2030,0,6])
 plt.grid()
@@ -55,6 +57,7 @@ plt.grid()
 life_expectancy_label = 'Life Expectancy at Birth, both sexes (years)'
 life_expectancy = [clean(d[life_expectancy_label]) for d in data]
 print(life_expectancy)
+plt.figure(figsize=(20,10))
 plt.plot(years,life_expectancy)
 plt.grid()
 plt.axis([1950,2030,0,80])
