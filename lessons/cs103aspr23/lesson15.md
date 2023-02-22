@@ -181,7 +181,7 @@ It generates the html page by plugging in the "body" block into the block body s
 
 
     
-    
+## Python code for the app   
     
 This example shows two types of persistent data.
 We have already seen how to maintain data for each session, but most webapps need to retain data between sessions as well,
