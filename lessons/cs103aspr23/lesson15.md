@@ -39,6 +39,10 @@ the following two code snippets are equivalent
 ``` python
 def f(arg):
     ...
+def h(a):
+    def f_h(arg):
+        ...
+    return f_h
 f = g(f)
 f = h(a)(f)
 #---------------
@@ -53,71 +57,6 @@ Likewise h(a) must take a function argument and return a function.
 In this case, app.route(PATH) modifies the app server so that it responds to the path http://domain/PATH by calling the function.
 
 
-## Sessions
-Next we look at a more complex example in which we use cookies to maintain state during a session.
-
-Webservers are designed to be stateless... that is they process each incoming request from a browser
-independently of all other requests.  When a user visits a website though they usually only login once
-and every other time they visit the site, they don't have to repeat the login information.  This is done
-by having the browsers store info from the server (called a cookie) and send it back whenever it visits that
-same server. The Flask session handles all of this for us and lets imagine that the server has a dictionary
-for each user that visits the site. The dictionary usually resets to an empty dictionary if the browser doesn't
-visit the site for some fixed time.
-
-When we impot the session dictioary from flask it allows us to store dictionary values in the cookies
-sent between the server and the browser. Here is an example.
-
-
-
-``` python
-
-from flask import session,request,redirect,url_for,Flask
-
-
-app = Flask(__name__)
-
-# Set the secret key to some random bytes. Keep this really secret!
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-
-@app.route('/')
-def index():
-    if 'username' in session:
-        return f'Logged in as {session["username"]}'
-    return 'You are not logged in'
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        session['username'] = request.form['username']
-        return redirect(url_for('index'))
-    return '''
-        <form method="post">
-            <p><input type=text name=username>
-            <p><input type=submit value=Login>
-        </form>
-    '''
-
-@app.route('/logout')
-def logout():
-    # remove the username from the session if it's there
-    session.pop('username', None)
-    return redirect(url_for('index'))
-
-if __name__=='__main__':
-    app.run(debug=True,port=5001)
-    
-```
-
-This example also shows how the flask server can get info from a user (via an HTML form) and send it back
-
-## GET and POST requests
-Each request from a browser is either a GET request (for example from clicking a link or cut/pasting in a URL into a browser)
-or a POST request (for example, from filling out a form and pressing the submit button). The ``` login``` route above
-shows the standard way to get info from a user (by sending them a form to fill out) and how to read the data they send (using the
-request.form dictionary)
-
-In this example, when the user logs in, we store their username in the session dictionary with the 'username' key
-When they visit the '/logout' route, we pop the 'username' key out of the dictionary.
 
 ## Form data and URL data
 Here is an example showing how to send data back and forth between browser and server.
@@ -307,6 +246,73 @@ if __name__=='__main__':
     app.run(debug=True,port=5001)
 ```
 
+
+
+## Sessions
+Next we look at a more complex example in which we use cookies to maintain state during a session.
+
+Webservers are designed to be stateless... that is they process each incoming request from a browser
+independently of all other requests.  When a user visits a website though they usually only login once
+and every other time they visit the site, they don't have to repeat the login information.  This is done
+by having the browsers store info from the server (called a cookie) and send it back whenever it visits that
+same server. The Flask session handles all of this for us and lets imagine that the server has a dictionary
+for each user that visits the site. The dictionary usually resets to an empty dictionary if the browser doesn't
+visit the site for some fixed time.
+
+When we impot the session dictioary from flask it allows us to store dictionary values in the cookies
+sent between the server and the browser. Here is an example.
+
+
+
+``` python
+
+from flask import session,request,redirect,url_for,Flask
+
+
+app = Flask(__name__)
+
+# Set the secret key to some random bytes. Keep this really secret!
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
+@app.route('/')
+def index():
+    if 'username' in session:
+        return f'Logged in as {session["username"]}'
+    return 'You are not logged in'
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for('index'))
+    return '''
+        <form method="post">
+            <p><input type=text name=username>
+            <p><input type=submit value=Login>
+        </form>
+    '''
+
+@app.route('/logout')
+def logout():
+    # remove the username from the session if it's there
+    session.pop('username', None)
+    return redirect(url_for('index'))
+
+if __name__=='__main__':
+    app.run(debug=True,port=5001)
+    
+```
+
+This example also shows how the flask server can get info from a user (via an HTML form) and send it back
+
+## GET and POST requests
+Each request from a browser is either a GET request (for example from clicking a link or cut/pasting in a URL into a browser)
+or a POST request (for example, from filling out a form and pressing the submit button). The ``` login``` route above
+shows the standard way to get info from a user (by sending them a form to fill out) and how to read the data they send (using the
+request.form dictionary)
+
+In this example, when the user logs in, we store their username in the session dictionary with the 'username' key
+When they visit the '/logout' route, we pop the 'username' key out of the dictionary.
 
 ## Python code for a more sophisticated app   
     
