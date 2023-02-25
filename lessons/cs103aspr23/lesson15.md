@@ -119,6 +119,57 @@ request.form dictionary)
 In this example, when the user logs in, we store their username in the session dictionary with the 'username' key
 When they visit the '/logout' route, we pop the 'username' key out of the dictionary.
 
+## Form data and URL data
+Here is an example showing how to send data back and forth between browser and server.
+
+``` python
+'''
+  this demo shows how to pass data to and from a flask server
+'''
+from flask import Flask,request
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return '''
+    <h1>Flask Demo</h1>
+    <ul>
+      <li><a href="/factors_of/120">factors of 120</a></li>
+      <li><a href="/factor_demo">factor demo</a></li>
+    </ul>
+    '''
+
+@app.route('/factors_of/<num>')
+def factors_of(num):
+    num=int(num)
+    factors = [d for d in range(1,num+1) if num%d==0]
+    return factors
+
+@app.route('/factor_demo', methods=['GET', 'POST'])
+def factor_demo():
+    if request.method == 'GET':
+        return '''
+        <form method="POST" action="/factor_demo">
+          Enter a number to factor: <input type="text" name="num"><br>
+          <input type="submit">
+        </form>
+        '''
+    elif request.method == 'POST':
+        num=int(request.form['num'])
+        factors = [d for d in range(1,num+1) if num%d==0]
+        return factors
+    else:
+        return 'unknown HTTP method: '+str(request.method)
+
+
+
+
+if __name__=='__main__':
+    app.run(debug=True,port=5001)
+
+```
+
 ## JINJA
 Mixing Python and HTML code makes for confusing programs and is not tenable for large applications.
 Flask apps usually use the [JINJA](https://jinja.palletsprojects.com/en/3.1.x/) templating engine to separate markup code (HTML) from Python code.
