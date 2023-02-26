@@ -56,6 +56,7 @@ Likewise h(a) must take a function argument and return a function.
 
 In this case, app.route(PATH) modifies the app server so that it responds to the path http://domain/PATH by calling the function.
 You can learn more about decorators by searching for Python tutorials like [this one](https://realpython.com/primer-on-python-decorators/)
+or [this](https://peps.python.org/pep-0318/)
 
 ## Form data and URL data
 Here is an example showing how to send data back and forth between browser and server.
