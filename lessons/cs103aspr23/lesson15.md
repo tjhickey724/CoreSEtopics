@@ -314,6 +314,31 @@ request.form dictionary)
 In this example, when the user logs in, we store their username in the session dictionary with the 'username' key
 When they visit the '/logout' route, we pop the 'username' key out of the dictionary.
 
+## JINJA
+Mixing Python and HTML code makes for confusing programs and is not tenable for large applications.
+Flask apps usually use the [JINJA](https://jinja.palletsprojects.com/en/3.1.x/) templating engine to separate markup code (HTML) from Python code.
+
+Below is a more complex model which uses JINJA templating and also stores data in a REDIS repository.
+Redis is a simple NOSQL database which stands for Remote Dictionary Server.  It is basically a serice that lets you store and retrieve key/value pairs.
+
+This example is in a folder ``` flash_demo`` containing the following files and folders:
+``` 
+flash_demo.py
+
+static
+   hello.txt
+
+templates:
+   counter.html
+   index.html
+   layout.html
+   login.html
+```
+and we run it using the command
+``` bash
+python3 flash_demo.py
+```
+
 ## Python code for a more sophisticated app   
     
 This example shows two types of persistent data.
@@ -383,30 +408,6 @@ def counter():
 if __name__=='__main__':
     app.run(debug=True,port=5001)
 
-```
-## JINJA
-Mixing Python and HTML code makes for confusing programs and is not tenable for large applications.
-Flask apps usually use the [JINJA](https://jinja.palletsprojects.com/en/3.1.x/) templating engine to separate markup code (HTML) from Python code.
-
-Below is a more complex model which uses JINJA templating and also stores data in a REDIS repository.
-Redis is a simple NOSQL database which stands for Remote Dictionary Server.  It is basically a serice that lets you store and retrieve key/value pairs.
-
-This example is in a folder ``` flash_demo`` containing the following files and folders:
-``` 
-flash_demo.py
-
-static
-   hello.txt
-
-templates:
-   counter.html
-   index.html
-   layout.html
-   login.html
-```
-and we run it using the command
-``` bash
-python3 flash_demo.py
 ```
 
 
