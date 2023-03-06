@@ -18,3 +18,7 @@ We will show how to load in the Brandeis course data into a SQL database and to 
 
 Here is the link to the L18 notebook [L18 SQL](https://github.com/tjhickey724/cs103aspr23)
 
+You can learn more about SQL and Database Management from this book
+[Database Systems Concepts](https://www.db-book.com/slides-dir/index.html)
+which also had a comprehensive set of slides!
+
