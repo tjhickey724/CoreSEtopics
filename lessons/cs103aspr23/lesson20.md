@@ -24,6 +24,5 @@ select count(*) from employees; -- returns the number of employees
 -- shows the column names and types for the employees table
 ```
 
-Then we look over the documentation for 
-* JOIN 
+Then we look over the documentation for JOIN and other clauses...
 
