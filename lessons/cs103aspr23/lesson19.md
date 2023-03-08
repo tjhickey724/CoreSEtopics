@@ -114,7 +114,7 @@ Here is the code for the TodoList ORM:
 
 ``` python
 '''
-todolist.py is a Object Relational Mapping to the todolist database
+todolist.py is an Object Relational Mapping to the todolist database
 
 The ORM will work map SQL rows with the schema
     (rowid,title,desc,completed)
@@ -139,67 +139,42 @@ def toDict(t):
 
 class TodoList():
     def __init__(self):
-        con= sqlite3.connect(os.getenv('HOME')+'/todo.db')
-        cur = con.cursor() 
-        cur.execute('''CREATE TABLE IF NOT EXISTS todo
-                    (title text, desc text, completed int)''')
-        con.commit()
-        con.close()
+        self.runQuery('''CREATE TABLE IF NOT EXISTS todo
+                    (title text, desc text, completed int)''',())
+    
     def selectActive(self):
         ''' return all of the uncompleted tasks as a list of dicts.'''
-        con= sqlite3.connect(os.getenv('HOME')+'/todo.db')
-        cur = con.cursor() 
-        cur.execute("SELECT rowid,* from todo where completed=0")
-        tuples = cur.fetchall()
-        con.commit()
-        con.close()
-        return [toDict(t) for t in tuples]
+        return self.runQuery("SELECT rowid,* from todo where completed=0",())
+
     def selectAll(self):
         ''' return all of the tasks as a list of dicts.'''
-        con= sqlite3.connect(os.getenv('HOME')+'/todo.db')
-        cur = con.cursor() 
-        cur.execute("SELECT rowid,* from todo")
-        tuples = cur.fetchall()
-        con.commit()
-        con.close()
-        return [toDict(t) for t in tuples]
+        return self.runQuery("SELECT rowid,* from todo",())
 
     def selectCompleted(self):
         ''' return all of the completed tasks as a list of dicts.'''
+        return self.runQuery("SELECT rowid,* from todo where completed=1",())
+
+    def add(self,item):
+        ''' create a todo item and add it to the todo table '''
+        return self.runQuery("INSERT INTO todo VALUES(?,?,?)",(item['title'],item['desc'],item['completed']))
+
+    def delete(self,rowid):
+        ''' delete a todo item '''
+        return self.runQuery("DELETE FROM todo WHERE rowid=(?)",(rowid,))
+
+    def setComplete(self,rowid):
+        ''' mark a todo item as completed '''
+        return self.runQuery("UPDATE todo SET completed=1 WHERE rowid=(?)",(rowid,))
+
+    def runQuery(self,query,tuple):
+        ''' return all of the uncompleted tasks as a list of dicts.'''
         con= sqlite3.connect(os.getenv('HOME')+'/todo.db')
         cur = con.cursor() 
-        cur.execute("SELECT rowid,* from todo where completed=1")
+        cur.execute(query,tuple)
         tuples = cur.fetchall()
         con.commit()
         con.close()
         return [toDict(t) for t in tuples]
-    def add(self,item):
-        ''' create a todo item and add it to the todo table '''
-        con= sqlite3.connect(os.getenv('HOME')+'/todo.db')
-        cur = con.cursor() 
-        cur.execute("INSERT INTO todo VALUES(?,?,?)",(item['title'],item['desc'],item['completed']))
-        tuples = cur.fetchall()
-        con.commit()
-        con.close()
-        return
-    def delete(self,rowid):
-        ''' delete a todo item '''
-        con= sqlite3.connect(os.getenv('HOME')+'/todo.db')
-        cur = con.cursor() 
-        cur.execute("DELETE FROM todo WHERE rowid=(?)",(rowid,))
-        tuples = cur.fetchall()
-        con.commit()
-        con.close()
-        return
-    def setComplete(self,rowid):
-        ''' mark a todo item as completed '''
-        con= sqlite3.connect(os.getenv('HOME')+'/todo.db')
-        cur = con.cursor() 
-        cur.execute("UPDATE todo SET completed=1 WHERE rowid=(?)",(rowid,))
-        tuples = cur.fetchall()
-        con.commit()
-        con.close()
-        return
 
 ```
 
