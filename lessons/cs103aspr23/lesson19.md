@@ -179,7 +179,8 @@ class TodoList():
 ```
 
 and here is the revised todo app that uses this ORM.
-You can see how much clearer it is that the original code.
+This would allow us to switch to a different database without changing the todo2.py code
+(e.g. to MYSQL or to a NOSQL database like mongodb, or a key/value store like redis)
 
 ``` python
 #! /opt/miniconda3/bin/python3
