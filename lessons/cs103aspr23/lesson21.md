@@ -298,3 +298,24 @@ def test_set_complete(todolist,returned_dicts):
 
 ```
 
+and here is how we run pytest on this test
+``` python
+(base) tim@macbook-pro-3 lesson21 % pytest -vv
+================================================== test session starts ===================================================
+platform darwin -- Python 3.10.7, pytest-7.2.1, pluggy-1.0.0 -- /Library/Frameworks/Python.framework/Versions/3.10/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /Users/tim/Desktop/cs103a/lesson21
+collected 7 items                                                                                                        
+
+test_tmppath.py::test_create_file PASSED                                                                           [ 14%]
+test_todolist.py::test_selectAll PASSED                                                                            [ 28%]
+test_todolist.py::test_selectActive PASSED                                                                         [ 42%]
+test_todolist.py::test_selectCompleted PASSED                                                                      [ 57%]
+test_todolist.py::test_add PASSED                                                                                  [ 71%]
+test_todolist.py::test_delete PASSED                                                                               [ 85%]
+test_todolist.py::test_set_complete PASSED                                                                         [100%]
+
+=================================================== 7 passed in 0.05s ====================================================
+(base) tim@macbook-pro-3 lesson21 % 
+```
+
