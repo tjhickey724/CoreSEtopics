@@ -7,7 +7,7 @@ which means developing the code for a webapp including
 - database code, that stores user data in a database and retrieves it to use in new webpages
 
 ## Installing Nodejs
-We assume everyone has installed nodeJs following the instructions at this website:
+We will assume everyone has installed nodeJs following the instructions at this website:
 https://nodejs.org/en/
 
 ## Learning Objectives -- by the end of the lesson you will be able to
