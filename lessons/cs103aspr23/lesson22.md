@@ -32,6 +32,41 @@ Next we introduce some of the core HTML and CSS features and get some practice u
 ## Tour of the App
 We walk through the basic app and explain the Model/View/Controller structure of the server
 and explain how app.js is best thought of as a "server generator"
+``` bash
+app.js
+bin/
+package-lock.json
+package.json
+public/
+routes/
+views/
+```
+and the folders have the following contents
+``` bash
+
+firstapp/bin:
+www
+
+firstapp/public:
+images
+javascripts
+stylesheets
+
+firstapp/public/images:
+
+firstapp/public/javascripts:
+
+firstapp/public/stylesheets:
+style.css
+
+firstapp/routes:
+index.js
+users.js
+
+firstapp/views:
+error.ejs
+index.ejs
+```
 
 ## HTML
 We begin by looking at the standard HTML components to create paragraphs, images, links, lists, and tables, and we create several new pages with links from the main page.
