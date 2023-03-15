@@ -45,27 +45,22 @@ and the folders have the following contents
 ``` bash
 
 firstapp/bin:
-www
+  www
 
-firstapp/public:
-images
-javascripts
-stylesheets
+firstapp/public/images: EMPTY
 
-firstapp/public/images:
+firstapp/public/javascripts: EMPTY
 
-firstapp/public/javascripts:
-
-firstapp/public/stylesheets:
-style.css
+firstapp/public/stylesheets: 
+  style.css
 
 firstapp/routes:
-index.js
-users.js
+  index.js
+  users.js
 
 firstapp/views:
-error.ejs
-index.ejs
+  error.ejs
+  index.ejs
 ```
 
 ## HTML
