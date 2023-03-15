@@ -21,7 +21,7 @@ We begin by installing the express generator and creating a new express app from
 ``` bash
 npm install -g express-generator
 cd Desktop
-express --ejs --view ejs myapp
+express --view=ejs myapp
 cd myapp
 npm install
 npm start
