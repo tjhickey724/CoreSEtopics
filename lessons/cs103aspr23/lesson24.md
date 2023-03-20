@@ -54,3 +54,6 @@ and you can start the mongo shell with
 mongo
 ```
 It is also a good idea to download and install the compass app
+
+We will be using the [Mongoose ORM](https://mongoosejs.com/docs/)
+to hae our express app interact with the database.
