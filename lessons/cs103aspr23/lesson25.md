@@ -163,3 +163,18 @@ function isLoggedIn(req, res, next) {
 < 
 ```
 
+## Password Authentication
+We look over the code in routes/pw_auth.js to explain how the authentication router works.
+
+
+# Implementing a todolist feature in our app
+We now show how to implement a todolist feature.
+We'll need to 
+* create a form to add new todo's
+* create a view to show all of the todo's which are not completed
+* create a model to store the todo info
+* create routes to show redner the form 
+* create a route to proess the info from the form
+
+We'll work through this and have you implement it step by step 
+and add it to the current app.
