@@ -164,7 +164,9 @@ function isLoggedIn(req, res, next) {
 ```
 
 ## updating the layout
-We also need to add login/logout links to the layout by modifing the layout as follows
+We also need to add login/logout links to the layout by modifing the layout as follows.
+This uses the loggedIn boolean (from res.locals.loggedIn) to decide whether to draw a login button
+or a logout button with an about page link. Otherwise the code is essentially the same as last time.
 ``` javascript
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
