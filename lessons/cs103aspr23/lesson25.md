@@ -163,6 +163,57 @@ function isLoggedIn(req, res, next) {
 < 
 ```
 
+## updating the layout
+We also need to add login/logout links to the layout by modifing the layout as follows
+``` javascript
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">CS103aSpr23</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            
+
+            <% if (!loggedIn) {%>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">
+                  <span class="button">Login</span>
+                </a>
+              </li>
+              
+              <% } else  { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="about">About</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">
+                    <span class="button">Logout</span>
+                  </a>
+              ``</li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <%= user.username %>
+                  </a>
+                </li>
+              <% } %>
+ 
+          </ul>
+         
+        </div>
+      </div>
+    </nav>
+
+``1
+
+
 ## Password Authentication
 We look over the code in routes/pw_auth.js to explain how the authentication router works.
 
