@@ -7,3 +7,8 @@ The four main kinds of interaction are referred to as the CRUD operations
 * Delete - Model.deleteOne(FILTER) or Model.deleteMany
 
 [Here](https://mongoosejs.com/docs/queries.html) is a list of all of the Mongoose queries
+
+But it is helpful to also be able to use the raw [Mongodb queries](https://www.mongodb.com/docs/manual/crud/)
+
+To explore this we will modify the todo app to allow us to mark a task as completed
+and also to add priorities to tasks and to change those priorities.
