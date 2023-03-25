@@ -62,10 +62,10 @@ Finally, we sort the items hy completed first, then priority, the by creation da
 ## Priority Demo
 Next we show how to add a priority to the todolist demo.
 
-* First we need to add a priority field to the todoitem model
-* Then we need to modify the form so that the user can select a priority (from 1-5)
-* Next we update the post route so that it reads the priority and saves it in the database
-* Then we modify the list view so it includes the priority and sorts it by priority
+1 First we need to add a priority field to the todoitem model
+1 Then we need to modify the form so that the user can select a priority (from 1-5)
+1 Next we update the post route so that it reads the priority and saves it in the database
+1 Then we modify the list view so it includes the priority and sorts it by priority
 
 We will do these in class and have you do them to gain experience in modifying the app.
 
