@@ -120,3 +120,8 @@ req.body.NAME  // to access a named element from a submitted form
 req.params.NAME // to access a value passed in as part of the route path
 req.query.NAME // to access a values passed as ?NAME=value on the URL
 ```
+
+## Exercise
+To teat your understanding you can try to add a feature to let a user edit an todo item
+by sending them to a edit page with a form filled out with the current values and a submit
+button to change the values.
