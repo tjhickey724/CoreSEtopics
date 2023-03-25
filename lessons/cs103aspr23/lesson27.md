@@ -131,3 +131,6 @@ button to change the values.
 We have now seen enough Express and Mongoose to be able to read the code in ```routes/pwauth.js```
 to see how username/password authentication works.
 
+# OpenAI integratation
+We can use an [openai Express API](https://github.com/openai/openai-node) to access GPT from an express app.
+
