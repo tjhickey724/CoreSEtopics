@@ -134,3 +134,8 @@ to see how username/password authentication works.
 # OpenAI integratation
 We can use an [openai Express API](https://github.com/openai/openai-node) to access GPT from an express app.
 
+# API Access
+We show how to access an API in Express using the [US Weather Service API](https://www.weather.gov/documentation/services-web-api) at
+``` html
+https://www.weather.gov/documentation/services-web-api
+```
