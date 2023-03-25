@@ -62,12 +62,13 @@ Finally, we sort the items hy completed first, then priority, the by creation da
 ## Priority Demo
 Next we show how to add a priority to the todolist demo.
 
-1. First we need to add a priority field to the todoitem model
-1. Then we need to modify the form so that the user can select a priority (from 1-5)
-1. Next we update the post route so that it reads the priority and saves it in the database
-1. Then we modify the list view so it includes the priority and sorts it by priority
+1. First we need to add a priority field to the todoitem model in ```models/TodoItem.js```
+1. Then we need to modify the form in ```views/toDoList.ejs``` so that the user can select a priority (from 1-5)
+1. Next we update the post route in ```routes/todo.js``` so that it reads the priority and saves it in the database
+1. Then we modify the list view int ```views/toDoList.ejs``` so it includes the priority and sorts it by priority
 
 We will do these in class and have you do them to gain experience in modifying the app.
+
 
 
 ## Recap - sending data from browser to server
@@ -125,3 +126,8 @@ req.query.NAME // to access a values passed as ?NAME=value on the URL
 To teat your understanding you can try to add a feature to let a user edit an todo item
 by sending them to a edit page with a form filled out with the current values and a submit
 button to change the values.
+
+# Authemtication
+We have now seen enough Express and Mongoose to be able to read the code in ```routes/pwauth.js```
+to see how username/password authentication works.
+
