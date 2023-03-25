@@ -41,6 +41,24 @@ const completed = req.query.show=='completed'
 ```
 where express uses req.query.NAME to refer to the query argument with the specified NAME.
 
+We can then use this query argument to modify the ".find" method in the router 
+``` javascript
+router.get('/todo/',
+  isLoggedIn,
+  async (req, res, next) => {
+      const completed = req.query.show=='completed'
+      res.locals.show = req.query.show
+      res.locals.items = 
+        await ToDoItem.find(
+           {userId:req.user._id, completed}).sort({completed:1,priority:1,createdAt:1})
+      res.render('toDoList');
+});
+```
+so ```req.query.show``` gets the query parameter (either completed or todo)
+and we send that value to the view as ```res.locals.show```
+and we use it to lookup the users todo items, either completed or not completed.
+Finally, we sort the items hy completed first, then priority, the by creation date.
+
 ## Priority Demo
 Next we show how to add a priority to the todolist demo.
 
