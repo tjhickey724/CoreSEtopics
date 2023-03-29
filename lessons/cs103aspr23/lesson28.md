@@ -1,7 +1,7 @@
 ## Future Homeworks
 * PA03 Python SQL Transactions App was due Sunday 3/26
-* PA04 NodeJS/Express Mongoose Transaction App due in 3 weeks (group or individual, your choice) due Sunday 4/16 (after Spring break)
 * CA01 GPT Flask App due next Sunday 4/2  (group project)
+* PA04 NodeJS/Express Mongoose Transaction App due in 3 weeks (group or individual, your choice) due Sunday 4/16 (after Spring break)
 * CA02 GPT NodeJS/Express/Mongoose App due Sunday 4/23 (individual project must store info in DB and share it)
 * PA95 React App due Sunday 4/30  (group or individual project, your choice)
 
