@@ -41,6 +41,8 @@ $match produces a new stream by filtering the current stream in the same way the
 $sort reorders the stream based on a list of fields that are specified to increase or decrease
 
 ## Adding aggregation to the ToDoList
+Let's use aggregation to find the number of todos on each users todolist!
+
 To do this we first make a slight change to the ToDoList model which will allow us to easily get a user's username from their userId. The change is to add a "ref" field for the userId so Mongoose will be able to determine which Collection that userId refers to.
 ``` javascript
 
