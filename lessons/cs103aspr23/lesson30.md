@@ -125,3 +125,7 @@ as columns (td)
     </tbody>
 </table>
 ```   
+## Exercises
+1. Try to have it only report on the number of completed items!
+2. Have it also report the average priority of each user's completed items
+       
