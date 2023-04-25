@@ -8,3 +8,6 @@ We next show how to create a nextjs app. The main advantage of using nextjs over
 that nextjs make it easier to
 * create multipage apps and link between them
 * interact with the server
+* deploy the app to a server in the cloud
+
+
