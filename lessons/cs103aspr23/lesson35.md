@@ -75,6 +75,8 @@ Let's remove the default index.js file which is a nextjs ad, and replace it with
 The Head tag allows us to add elements to the <head> element of the webpage.
 The Link tag allows us to link t other pages, we will write the "pages/test.js" page soon.
 ``` javascript
+// pages/index.js
+  
 import Head from 'next/head'
 import Link from 'next/link';
 
