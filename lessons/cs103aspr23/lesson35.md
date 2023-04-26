@@ -10,6 +10,12 @@ that nextjs make it easier to
 * interact with the server
 * deploy the app to a server in the cloud
 
+Today we'll show how to create a nextjs app from scratch
+* How to add pages to the app and how to Link to them from other pages
+* How to create a general Layout that applies to every page
+* How to add bootstrap styling to all pages
+* How to interact with the server using the api/ routes with handler functions
+
 # Creating a Nextjs app from scratch
 We will work through the steps of creating a nextjs app from scratch and explain all parts of the app as we go
 
@@ -61,3 +67,34 @@ Initialized a git repository.
 
 Success! Created next_demo_1 at /Users/tim/Desktop/next_demo_1
 ```
+
+# adding pages to the app and Linking
+Simply create a file newpage.py in the pages folder
+and access it via the route /newpage
+Let's try that with an MLA exercise...
+
+# adding bootstrap to the nextjs app
+Step 1 is to install bootstrap in the node_modules
+``` bash
+npm install bootstrap
+```
+Next modify the _app.js file to import the bootstrap css and 
+the bootstrap javascript (but this has to be done with use_effect
+as it must be run in the browser not in the server...
+``` javascript
+import React,{useEffect} from 'react';
+
+import 'bootstrap/dist/css/bootstrap.css';
+//import '@/styles/globals.css';
+
+export default function App({ Component, pageProps }) {
+  useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
+  return (
+      <Component {...pageProps} />
+  ) 
+}
+
+```
+
