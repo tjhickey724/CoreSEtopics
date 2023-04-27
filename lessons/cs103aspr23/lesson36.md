@@ -24,6 +24,11 @@ export default function handler(req, res) {
 ```
 and then interact with this api hook from the client-side as follows,
 after npm installing the swr package.
+``` bash
+npm install swr
+```
+which installs the custom hook created by the nextjs team,
+and that allows the browser to get data from the server efficiently:
 ``` javascript
 import useSWR from 'swr'
 
