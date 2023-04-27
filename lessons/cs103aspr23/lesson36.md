@@ -6,6 +6,8 @@ We begin by getting everyone setup with the code from yesterday
 and we ask everyone to download the latest version of the [postman app](https://www.postman.com/downloads/)
 which will allow us to see how a browser sees our apps!
 
+We'll have everyone create a changecounter page, step-by-step.
+
 ## APIs
 
 
