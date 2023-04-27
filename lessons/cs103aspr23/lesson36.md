@@ -48,3 +48,11 @@ export default function Profile() {
   )
 }
 ```
+
+## Prefetching and server-side rendering
+One of the most important features of nextjs is that it can be used to have the server render an initial version
+of the page when sending it down to the client. This is important for Search Engine Optimizzation. To see why, lets use
+the Postman app to look at how the browser sees our origin ToDoList react app and our new nextjs app.
+
+For the pure react app, the browser is sent a page template in HTML and javascript code to build the page, but this
+is not something a google search engine spider will do, so the todolist app will not get propertly indexed by a search engine.
