@@ -1,4 +1,4 @@
-# Overview/Review
+# Summary/Review
 Today we review all of the concepts we covered in the course and we complete the course evaluations.
 We have two course evaluation, an official one which is being tested by the University and 
 a Teaching Practices Survey which will give me much more detailed feedback about what works and what doesn't in this course.
@@ -21,7 +21,7 @@ own shell in Java. So take
 * COSI 132b Distributed Data Management (131a is a prereq)
 
 
-## Python Programming and Pandas with automated testing (pytest) and linting (pylint)
+## Python Programming and Pandas with automated testing (pytest), linting (pylint)
 Python is one of the most common tools for Data Analysis and if you liked the work with Pandas then think
 about taking the Machine Learning courses 
 Automated testing and Continuous integration is an important skill that is sometimes taught in CS12b
@@ -30,9 +30,15 @@ using Python in
 * Cosi 129a: Introduction to Big Data Analysis
 * COSI 143b Data Management for Data Science
 
+## Visualization with Matplotlib and Numpy
+We learned how to use matplotlib (and numpy) to generate plots of various sorts
+If you enjoy this kind of work, consider taking some of the following
+* Cosi 164a: Introduction to 3D Animation
+* Cosi 114a: Visualization (New Course)
+* Cosi 177a: Scientific Programming
+
 ## SQL
-SQL is one of the best known relational database languages and if you want to know more about how Database
-Management systems work, then take
+SQL is one of the best known relational database languages and if you want to know more about how Database Management systems work, then take
 * COSI 127b Database Management Systems
 
 ## Web App development in NodeJS/Express/Mongoose/EJS
