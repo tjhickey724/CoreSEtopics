@@ -10,3 +10,6 @@ The main differences between React Native and React are that React Native
 We'll give an intro by working through the [Getting Started Tutorial](https://docs.expo.dev/tutorial/introduction/)
 and the [expo.dev](https://expo.dev) website.
 
+First though we'll look at a simple app using the [Snack web IDE for React Native](https://snack.expo.dev/)
+and show how we can run it on your phone.
+
