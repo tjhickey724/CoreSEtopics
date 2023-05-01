@@ -20,15 +20,12 @@ We covered the basics but there is a lot more you can do with such systems and y
 development job or internship. You should definitely use your git account as an ePortfolio and look into use the github.io
 site to highlight your accomplishments.
 
-## Python Programming with automated testing (pytest) and linting (pylint)
-Automated testing and Continuous integration is an important skill that is sometimes taught in CS12b
-and that is an essential part of any software development project. You can learn more about software
-development (usually in Ruby) in the course 
-* COSI 166b Capstone Project for Software Engineering
-
-## Pandas
+## Python Programming and Pandas with automated testing (pytest) and linting (pylint)
 Python is one of the most common tools for Data Analysis and if you liked the work with Pandas then think
-about taking the Machine Learning courses, such as 
+about taking the Machine Learning courses 
+Automated testing and Continuous integration is an important skill that is sometimes taught in CS12b
+and that is an essential part of any software development project. You can learn more about Data Science
+using Python in 
 * Cosi 129a: Introduction to Big Data Analysis
 * COSI 143b Data Management for Data Science
 
