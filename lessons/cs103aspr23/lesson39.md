@@ -33,13 +33,6 @@ using Python in
 ## SQL
 SQL is one of the best known relational database languages and if you want to know more about how Database
 Management systems work, then take
-
-# Surveys
-Please help improve this course by completing the following surveys:
-* my Teaching Practices Survey
-* the prototype Course Evaluation survey
-
-
 * COSI 127b Database Management Systems
 
 ## Web App development in NodeJS/Express/Mongoose/EJS
@@ -53,3 +46,7 @@ You can take an entire semester course on Mobile App Development (usually in Rea
 * COSI 153a Mobile Application Development
 
 
+# Surveys
+Please help improve this course by completing the following surveys:
+* my Teaching Practices Survey
+* the prototype Course Evaluation survey
