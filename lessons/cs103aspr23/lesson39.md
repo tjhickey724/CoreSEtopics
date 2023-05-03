@@ -52,7 +52,21 @@ You can take an entire semester course on Mobile App Development (usually in Rea
 * COSI 153a Mobile Application Development
 
 
-# Surveys
+# Course Evaluations
+
+Dear students,
+
+Congratulations on completing the semester! We now ask you to reflect on your learning experiences and to give feedback to your instructors. This feedback helps instructors reflect upon their teaching and also provides important information about faculty members to their departments, the Dean’s Office, the Provost’s Office, and evaluative groups such as the Reappointment and Tenure Promotion Committees. Consistent with the Brandeis core values that call everyone to seek truth even unto its innermost, to act with honesty and integrity, and to remain committed to justice, we entrust you with the responsibility to give fair and constructive feedback about your course and your experiences in it.
+
+
+Thank you for your engagement with your peers, your faculty, and the intellectual life of the university. We appreciate your taking the time to provide thoughtful feedback about your learning experience, and we will read your comments carefully.
+
+
+
 Please help improve this course by completing the following surveys:
-* my Teaching Practices Survey
+* my [Teaching Practices Survey](https://docs.google.com/forms/d/e/1FAIpQLSfzoohfvYQ6mXA14TuTApI9n8-T64Ai4rozWL1t7zDUWD6lkQ/viewform)
 * the prototype Course Evaluation survey
+* and the official course evaluation
+ * this course is participating in a pilot testing the new questionnaire and that, therefore, you will be filling out a different questionnaire
+ * please go to your email and find the email with the subject line "Course evaluations are now open"
+
