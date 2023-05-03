@@ -65,8 +65,7 @@ Thank you for your engagement with your peers, your faculty, and the intellectua
 
 Please help improve this course by completing the following surveys:
 * my [Teaching Practices Survey](https://docs.google.com/forms/d/e/1FAIpQLSfzoohfvYQ6mXA14TuTApI9n8-T64Ai4rozWL1t7zDUWD6lkQ/viewform)
-* the prototype Course Evaluation survey
 * and the official course evaluation
- * this course is participating in a pilot testing the new questionnaire and that, therefore, you will be filling out a different questionnaire
- * please go to your email and find the email with the subject line "Course evaluations are now open"
+  -  this course is participating in a pilot testing the new questionnaire and that, therefore, you will be filling out a different questionnaire
+  -  please go to your email and find the email with the subject line "Course evaluations are now open"
 
