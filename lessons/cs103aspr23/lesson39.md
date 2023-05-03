@@ -1,3 +1,8 @@
+# Finishing up the semester
+* all homework is due Thursday (5/4) before midnight
+* all regrade requests are due Sunday (5/7) before midnight
+* Office hours are today from 3-5 in person and online
+
 # Summary/Review
 Today we review all of the concepts we covered in the course and we complete the course evaluations.
 We have two course evaluation, an official one which is being tested by the University and 
